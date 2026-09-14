@@ -1,110 +1,177 @@
-  .teaser.block {
-    height: 490px;
-    border-radius: 12px;
-    position: relative;
-    overflow: hidden;
-  }
+/* xe-hero block
+   Reference design: bold condensed uppercase title, content centered as a
+   column and anchored in the lower two-thirds (not flush to the bottom
+   edge), light scrim so the photo stays clearly visible, solid + outlined
+   arrow-tagged action buttons.
+   Axes: height (responsive|tall|standard|compact)
+         text alignment (center|left)
+         image position (center|top|bottom) */
 
-  .teaser.block.half-height {
-    height: 200px;
-  }
-  
-  /* foreground container, flex (text + spacer), always on top */
-  .teaser.block > .foreground {
-    position: relative;
-    display: flex;
-    padding: 70px 40px;;
-    background-color: unset;
-    max-width: 540px;
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap');
 
-  }
-
-  @media (width >= 900px) {
-    .teaser.block > .foreground {
-      padding: 10px 87px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      height: 100%;
-    }
-  }
-
-/* turn on the eybrow */
-.teaser.block > .foreground > .text > .eyebrow {
-    display: block;
-    text-align: left;
-    font: normal normal bold 12px/16px Roboto, sans-serif;
-    letter-spacing: 0.96px;
-    color: #FFF;
-    text-transform: uppercase;
-    opacity: 1;
+.xe-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #0b1410;
+  color: #fff;
 }
 
-.teaser.block > .foreground > .text > .title :where(h1,h2,h3,h4,h5,h6) {
+/* --- media + scrim -------------------------------------------------------- */
+.xe-hero .xe-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.xe-hero .xe-hero__media picture,
+.xe-hero .xe-hero__media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.xe-hero.xe-hero--img-center .xe-hero__media img { object-position: center; }
+.xe-hero.xe-hero--img-top .xe-hero__media img { object-position: top; }
+.xe-hero.xe-hero--img-bottom .xe-hero__media img { object-position: bottom; }
+
+/* Light overall scrim, a touch heavier low-center where the text sits.
+   The photo (trees/grass) stays clearly visible — this is NOT a dark
+   full-bleed overlay like the previous version. */
+.xe-hero .xe-hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgb(0 0 0 / 8%) 0%, rgb(0 0 0 / 15%) 55%, rgb(0 0 0 / 40%) 100%),
+    radial-gradient(60% 40% at 30% 75%, rgb(0 0 0 / 35%) 0%, rgb(0 0 0 / 0%) 100%);
+}
+
+/* --- heights --------------------------------------------------------------- */
+.xe-hero.xe-hero--responsive { min-height: clamp(360px, 55vw, 620px); }
+.xe-hero.xe-hero--tall { min-height: 620px; }
+.xe-hero.xe-hero--standard { min-height: 460px; }
+.xe-hero.xe-hero--compact { min-height: 320px; }
+
+/* --- content: column anchored in the lower portion of the hero, with
+       breathing room left below it before the hero's bottom edge --------- */
+.xe-hero .xe-hero__content {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+  margin-top: auto;
+  padding: 32px 32px clamp(48px, 10vh, 110px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.xe-hero.xe-hero--align-center .xe-hero__content {
+  align-items: center;
+  text-align: center;
+}
+
+.xe-hero.xe-hero--align-left .xe-hero__content {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* --- title: bold, condensed, uppercase, high-impact ------------------------ */
+.xe-hero .xe-hero__title {
   margin: 0;
-  color: #FFF;
-  letter-spacing: 0;
-  font: normal normal normal 54px/50px Baskerville, serif;
+  font-family: 'Oswald', 'Arial Narrow', 'Haettenschweiler', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  font-size: clamp(2.75rem, 1.4rem + 6.5vw, 6rem);
+  line-height: 0.95;
+  max-width: 22ch;
+  text-shadow: 0 2px 10px rgb(0 0 0 / 30%);
 }
 
-@media (width >= 900px) {
-  .teaser.block > .foreground > .text > .title :where(h1,h2,h3,h4,h5,h6) {
-      margin: 0;
-      color: #FFF;
-      letter-spacing: 0;
-      font: normal normal normal 56px/56px Baskerville, serif;
-  }
+.xe-hero .xe-hero__subtitle {
+  margin: 0;
+  font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  max-width: 55ch;
+  opacity: 0.9;
 }
 
-
-.teaser.block.dark > .foreground > .text > .title {
-    color: #58181D;
+/* --- actions: rectangular, arrow-tagged, primary solid / secondary outline - */
+.xe-hero .xe-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: inherit;
+  gap: 10px;
+  margin-top: 6px;
 }
 
-.teaser.block.dark > .foreground > .text > .eyebrow {
-    color: #58181D;
+.xe-hero .xe-hero__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
-
-.teaser.block > .foreground > .text > .cta > a.button {
-    border: 0;
-    color: #FFF;
+/* Decorative arrow. NOTE: CSS-generated content is announced inconsistently
+   across screen readers — if strict WCAG 2.2 AA sign-off requires
+   guaranteed suppression, move this into xe-hero.js as an aria-hidden
+   span instead. */
+.xe-hero .xe-hero__action::after {
+  content: '\2192';
+  font-weight: 700;
 }
 
-  /* spacer */
-  .teaser.block > .foreground > .spacer {
-    display:block;
-    order: 1;
-    flex-grow:2;
-  }
+.xe-hero .xe-hero__action--primary {
+  background: #a53a3a;
+  border-color: #a53a3a;
+  color: #fff;
+}
 
-/* change the order if text should be on the right */
-.teaser.block.right > .foreground > .spacer {
-    order: 0;
-    }
+.xe-hero .xe-hero__action--primary:hover {
+  background: #bd4747;
+  border-color: #bd4747;
+}
 
- /* the background image container */
-  .teaser.block > .background {
-    display: block;
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .teaser.block > .background img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.xe-hero .xe-hero__action--light {
+  background: rgb(0 0 0 / 15%);
+  border-color: rgb(255 255 255 / 70%);
+  color: #fff;
+}
 
-  .teaser.block .long-description {
-    color: #FFF;
-  }
+.xe-hero .xe-hero__action--light:hover {
+  background: rgb(255 255 255 / 12%);
+}
 
-  @media (width >= 900px) {
-    .teaser.block > .background img {
-      width: 100%;
-      height: 100%;
-    }  
-  }
+.xe-hero .xe-hero__action:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+/* --- breakpoints: 768 / 375 -------------------------------------------- */
+@media (width <= 768px) {
+  .xe-hero .xe-hero__content { padding: 28px 24px clamp(36px, 8vh, 80px); }
+  .xe-hero.xe-hero--tall { min-height: 520px; }
+}
+
+@media (width <= 375px) {
+  .xe-hero .xe-hero__content { padding: 24px 18px clamp(28px, 7vh, 60px); }
+  .xe-hero .xe-hero__title { font-size: clamp(2.1rem, 1.4rem + 7vw, 3rem); }
+  .xe-hero .xe-hero__actions { width: 100%; flex-direction: column; }
+  .xe-hero .xe-hero__action { width: 100%; justify-content: center; }
+}
