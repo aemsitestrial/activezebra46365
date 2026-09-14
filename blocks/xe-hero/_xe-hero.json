@@ -1,0 +1,136 @@
+{
+  "definitions": [
+    {
+      "title": "Hero",
+      "id": "xe-hero",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "xe-hero",
+              "model": "xe-hero",
+              "filter": "xe-hero"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Hero Action",
+      "id": "xe-hero-action",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Hero Action",
+              "model": "xe-hero-action",
+              "actionText": "Learn more",
+              "actionLink": "#"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "xe-hero",
+      "fields": [
+        {
+          "component": "text",
+          "name": "title",
+          "label": "Title",
+          "description": "Required. Renders as the page h1.",
+          "valueType": "string",
+          "required": true
+        },
+        {
+          "component": "text",
+          "name": "subtitle",
+          "label": "Subtitle",
+          "description": "Optional sub-label.",
+          "valueType": "string"
+        },
+        {
+          "component": "reference",
+          "name": "image",
+          "label": "Background image (DAM)",
+          "multi": false,
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "imageAlt",
+          "label": "Image alt text",
+          "description": "Leave empty only if the image is purely decorative.",
+          "valueType": "string"
+        },
+        {
+          "component": "select",
+          "name": "height",
+          "label": "Height",
+          "valueType": "string",
+          "value": "responsive",
+          "options": [
+            { "name": "Responsive", "value": "responsive" },
+            { "name": "Tall", "value": "tall" },
+            { "name": "Standard", "value": "standard" },
+            { "name": "Compact", "value": "compact" }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "textAlign",
+          "label": "Text alignment",
+          "valueType": "string",
+          "value": "center",
+          "options": [
+            { "name": "Center", "value": "center" },
+            { "name": "Left", "value": "left" }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "imagePosition",
+          "label": "Image position",
+          "valueType": "string",
+          "value": "center",
+          "options": [
+            { "name": "Center", "value": "center" },
+            { "name": "Top", "value": "top" },
+            { "name": "Bottom", "value": "bottom" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xe-hero-action",
+      "fields": [
+        {
+          "component": "text",
+          "name": "actionText",
+          "label": "Action text",
+          "valueType": "string",
+          "required": true
+        },
+        {
+          "component": "aem-content",
+          "name": "actionLink",
+          "label": "Action link",
+          "valueType": "string",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "xe-hero",
+      "components": [
+        "xe-hero-action"
+      ]
+    }
+  ]
+}

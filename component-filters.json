@@ -13,6 +13,7 @@
       "button",
       "title",
       "hero",
+      "xe-hero",
       "article",
       "cards",
       "columns",
@@ -88,5 +89,11 @@
   {
     "id": "video",
     "components": []
+  },
+  {
+    "id": "xe-hero",
+    "components": [
+      "xe-hero-action"
+    ]
   }
 ]
