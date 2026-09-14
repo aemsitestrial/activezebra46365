@@ -1,6 +1,6 @@
-/* xe-hero block — centered layout matching reference design */
+/* xe-hero block — polished, centered layout matching reference design */
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap');
 
 .xe-hero {
   position: relative;
@@ -8,15 +8,14 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 500px;
   overflow: hidden;
   isolation: isolate;
-  background-color: #0b1410;
+  background-color: #12140f;
   color: #fff;
   text-align: center;
 }
 
-/* --- media + light scrim so the photo stays visible ----------------------- */
+/* --- media -------------------------------------------------------------- */
 .xe-hero .xe-hero__media {
   position: absolute;
   inset: 0;
@@ -31,88 +30,123 @@
   object-fit: cover;
 }
 
+.xe-hero.xe-hero--img-center .xe-hero__media img { object-position: center; }
+.xe-hero.xe-hero--img-top .xe-hero__media img { object-position: top; }
+.xe-hero.xe-hero--img-bottom .xe-hero__media img { object-position: bottom; }
+
+/* Soft vertical grade + gentle vignette behind the text block only —
+   keeps the photo bright and visible while still guaranteeing contrast. */
 .xe-hero .xe-hero__media::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgb(0 0 0 / 25%);
+  background:
+    linear-gradient(180deg, rgb(0 0 0 / 5%) 0%, rgb(0 0 0 / 10%) 45%, rgb(0 0 0 / 42%) 100%),
+    radial-gradient(65% 50% at 50% 78%, rgb(0 0 0 / 38%) 0%, rgb(0 0 0 / 0%) 100%);
 }
 
-/* --- heights --------------------------------------------------------------- */
-.xe-hero.xe-hero--responsive { min-height: clamp(360px, 55vw, 620px); }
-.xe-hero.xe-hero--tall { min-height: 620px; }
-.xe-hero.xe-hero--standard { min-height: 460px; }
-.xe-hero.xe-hero--compact { min-height: 320px; }
+/* --- heights -------------------------------------------------------------- */
+.xe-hero.xe-hero--responsive { min-height: clamp(400px, 60vw, 640px); }
+.xe-hero.xe-hero--tall { min-height: 88vh; }
+.xe-hero.xe-hero--standard { min-height: 500px; }
+.xe-hero.xe-hero--compact { min-height: 340px; }
 
-/* --- content: always centered, both axes ----------------------------------- */
+/* --- content ---------------------------------------------------------------- */
 .xe-hero .xe-hero__content {
+  position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 860px;
   margin: 0 auto;
-  padding: 32px;
+  padding: 40px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 12px;
+  gap: 18px;
 }
 
-/* --- title ------------------------------------------------------------------ */
+/* --- title -------------------------------------------------------------------- */
 .xe-hero .xe-hero__title {
   margin: 0;
   font-family: 'Oswald', 'Arial Narrow', 'Haettenschweiler', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: clamp(2.5rem, 1.4rem + 6vw, 5.5rem);
-  line-height: 1;
-  text-shadow: 0 2px 10px rgb(0 0 0 / 30%);
+  letter-spacing: 0.01em;
+  font-size: clamp(2.25rem, 1.3rem + 5.5vw, 5rem);
+  line-height: 1.02;
+  text-shadow: 0 3px 16px rgb(0 0 0 / 45%);
 }
 
 .xe-hero .xe-hero__subtitle {
   margin: 0;
-  font-size: 1rem;
-  font-weight: 400;
-  opacity: 0.9;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.95rem, 0.85rem + 0.3vw, 1.15rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.92;
+  text-shadow: 0 1px 8px rgb(0 0 0 / 40%);
 }
 
-/* --- actions ----------------------------------------------------------------- */
+/* --- actions ------------------------------------------------------------------- */
 .xe-hero .xe-hero__actions {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 8px;
+  gap: 12px;
+  margin-top: 6px;
 }
 
 .xe-hero .xe-hero__action {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 40px;
-  padding: 8px 18px;
+  min-height: 42px;
+  padding: 9px 20px;
   border-radius: 6px;
+  font-family: 'Oswald', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
+  letter-spacing: 0.03em;
   text-decoration: none;
   border: 1.5px solid transparent;
+  backdrop-filter: blur(2px);
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .xe-hero .xe-hero__action::after {
   content: '\2192';
   font-weight: 700;
+  transition: transform 0.15s ease;
+}
+
+.xe-hero .xe-hero__action:hover::after {
+  transform: translateX(3px);
 }
 
 .xe-hero .xe-hero__action--primary {
-  background: #a53a3a;
-  border-color: #a53a3a;
+  background: #a63a3a;
+  border-color: #a63a3a;
   color: #fff;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 25%);
+}
+
+.xe-hero .xe-hero__action--primary:hover {
+  background: #bd4444;
+  border-color: #bd4444;
+  transform: translateY(-1px);
 }
 
 .xe-hero .xe-hero__action--light {
-  background: transparent;
-  border-color: #fff;
+  background: rgb(0 0 0 / 20%);
+  border-color: rgb(255 255 255 / 85%);
   color: #fff;
+}
+
+.xe-hero .xe-hero__action--light:hover {
+  background: rgb(255 255 255 / 15%);
+  transform: translateY(-1px);
 }
 
 .xe-hero .xe-hero__action:focus-visible {
@@ -120,7 +154,14 @@
   outline-offset: 3px;
 }
 
+/* --- breakpoints: 768 / 375 ------------------------------------------------------ */
+@media (width <= 768px) {
+  .xe-hero.xe-hero--tall { min-height: 70vh; }
+  .xe-hero .xe-hero__content { padding: 32px 20px; gap: 14px; }
+}
+
 @media (width <= 375px) {
+  .xe-hero .xe-hero__content { padding: 28px 16px; gap: 12px; }
   .xe-hero .xe-hero__actions { width: 100%; flex-direction: column; }
   .xe-hero .xe-hero__action { width: 100%; justify-content: center; }
 }
