@@ -35,16 +35,22 @@ export default function decorate(block) {
   // --- media -------------------------------------------------------------
   const media = document.createElement('div');
   media.className = 'xe-hero__media';
-  const img = imageRow?.querySelector('img');
-  if (img) {
+
+  console.log('IMAGE ROW HTML:', imageRow?.innerHTML);
+
+  const existingImg = imageRow?.querySelector('img');
+  const anchor0 = imageRow?.querySelector('a');
+  const src = existingImg?.src || anchor0?.getAttribute('href') || val(imageRow);
+
+  if (src) {
     const alt = val(altRow);
-    const picture = createOptimizedPicture(img.src, alt, true, [
+    const picture = createOptimizedPicture(src, alt, true, [
       { media: '(min-width: 900px)', width: '2000' },
       { media: '(min-width: 600px)', width: '1200' },
       { width: '750' },
     ]);
     if (!alt) picture.querySelector('img').setAttribute('role', 'presentation');
-    moveInstrumentation(img, picture.querySelector('img'));
+    if (existingImg) moveInstrumentation(existingImg, picture.querySelector('img'));
     media.append(picture);
   }
 
