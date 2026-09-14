@@ -1,20 +1,20 @@
 {
   "mappings": [
-    "/content/aem-boilerplate-frescopa/:/",
-    "/content/aem-boilerplate-frescopa/en/:/",
-    "/content/aem-boilerplate-frescopa/en/locations/locationslist:/locations.json",
-    "/content/aem-boilerplate-frescopa/es:/es",
-    "/content/aem-boilerplate-frescopa/es/:/es/",
-    "/content/aem-boilerplate-frescopa/fr:/fr",
-    "/content/aem-boilerplate-frescopa/fr/:/fr/",
-    "/content/aem-boilerplate-frescopa/jp:/jp",
-    "/content/aem-boilerplate-frescopa/jp/:/jp/",
-    "/content/aem-boilerplate-frescopa/configuration:/.helix/config.json",
-    "/content/aem-boilerplate-frescopa/headers:/.helix/headers.json"
+    "/content/2026/38/activezebra46365/:/",
+    "/content/2026/38/activezebra46365/en/:/",
+    "/content/2026/38/activezebra46365/en/locations/locationslist:/locations.json",
+    "/content/2026/38/activezebra46365/es:/es",
+    "/content/2026/38/activezebra46365/es/:/es/",
+    "/content/2026/38/activezebra46365/fr:/fr",
+    "/content/2026/38/activezebra46365/fr/:/fr/",
+    "/content/2026/38/activezebra46365/jp:/jp",
+    "/content/2026/38/activezebra46365/jp/:/jp/",
+    "/content/2026/38/activezebra46365/configuration:/.helix/config.json",
+    "/content/2026/38/activezebra46365/headers:/.helix/headers.json"
   ],
   "includes": [
-    "/content/aem-boilerplate-frescopa/",
-    "/content/dam/aem-boilerplate-frescopa/",
+    "/content/2026/38/activezebra46365/",
+    "/content/dam/2026/38/activezebra46365/",
     "/content/dam/formsanddocuments/",
     "/content/forms/af/"
   ]
