@@ -1,0 +1,21 @@
+{
+  "mappings": [
+    "/content/aem-boilerplate-frescopa/:/",
+    "/content/aem-boilerplate-frescopa/en/:/",
+    "/content/aem-boilerplate-frescopa/en/locations/locationslist:/locations.json",
+    "/content/aem-boilerplate-frescopa/es:/es",
+    "/content/aem-boilerplate-frescopa/es/:/es/",
+    "/content/aem-boilerplate-frescopa/fr:/fr",
+    "/content/aem-boilerplate-frescopa/fr/:/fr/",
+    "/content/aem-boilerplate-frescopa/jp:/jp",
+    "/content/aem-boilerplate-frescopa/jp/:/jp/",
+    "/content/aem-boilerplate-frescopa/configuration:/.helix/config.json",
+    "/content/aem-boilerplate-frescopa/headers:/.helix/headers.json"
+  ],
+  "includes": [
+    "/content/aem-boilerplate-frescopa/",
+    "/content/dam/aem-boilerplate-frescopa/",
+    "/content/dam/formsanddocuments/",
+    "/content/forms/af/"
+  ]
+}

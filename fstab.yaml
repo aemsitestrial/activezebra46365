@@ -1,0 +1,7 @@
+mountpoints:
+  /:
+    url: "https://author-p130360-e1272151.adobeaemcloud.com/bin/franklin.delivery/aemsitestrial/aem-boilerplate-frescopa/main"
+    type: "markup"
+    suffix: ".html"
+folders:
+  /products/: /products/default
