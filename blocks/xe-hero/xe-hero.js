@@ -9,6 +9,11 @@ const MAX_ACTIONS = 2; // AC02 — first primary, second static light.
 // also reported by other AEM EDS/CF authors). This script enforces the
 // cap only at render time — a 3rd authored action is silently dropped.
 
+// Fallback image shown when no background image is authored (no DAM asset,
+// no Image URL). Keeps the Hero looking finished even before an author
+// picks a real photo. Replace with your own default/brand image path.
+const DEFAULT_IMAGE = '/media_1c2b38ba805ce302c8f667f398f0ff4cebca85d40.png';
+
 const val = (row) => (row ? row.textContent.trim() : '');
 const looksLikeUrl = (text) => /^(https?:)?\//i.test(text);
 
@@ -73,10 +78,13 @@ export default function decorate(block) {
 
   const damImg = damRow?.querySelector('img');
   const damAnchor = damRow?.querySelector('a');
-  const src = damImg?.src || damAnchor?.getAttribute('href') || val(urlRow);
+  const authoredSrc = damImg?.src || damAnchor?.getAttribute('href') || val(urlRow);
+  const src = authoredSrc || DEFAULT_IMAGE;
+  const usingDefault = !authoredSrc;
+  if (usingDefault) block.classList.add('xe-hero--default-image');
 
   if (src) {
-    const alt = val(altRow);
+    const alt = usingDefault ? '' : val(altRow);
     const picture = createOptimizedPicture(src, alt, true, [
       { media: '(min-width: 900px)', width: '2000' },
       { media: '(min-width: 600px)', width: '1200' },
