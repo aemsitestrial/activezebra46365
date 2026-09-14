@@ -113,7 +113,7 @@
           }
         },
         {
-          "title": "Hero",
+          "title": "XE-Hero",
           "id": "xe-hero",
           "plugins": {
             "xwalk": {
