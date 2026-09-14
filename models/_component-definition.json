@@ -35,6 +35,9 @@
           "...": "../blocks/cards/_*.json#/definitions"
         },
         {
+          "...": "../blocks/xe-hero/_*.json#/definitions"
+        },
+        {
           "...": "../blocks/columns/_*.json#/definitions"
         },
         {
