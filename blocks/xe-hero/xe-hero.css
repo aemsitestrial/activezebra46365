@@ -1,20 +1,23 @@
-/* xe-hero block — B-04
-   Layout axes: height (responsive|tall|standard|compact)
-                text alignment (center|left)
-                image position (center|top|bottom) */
+/* xe-hero block
+   Reference design: bold condensed uppercase title, bottom-left anchored
+   content, solid + outlined arrow-tagged action buttons.
+   Axes: height (responsive|tall|standard|compact)
+         text alignment (center|left)
+         image position (center|top|bottom) */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap');
 
 .xe-hero {
   position: relative;
   display: grid;
-  place-items: center;
   width: 100%;
   overflow: hidden;
   isolation: isolate;
-  background-color: #0b2d3c;
+  background-color: #0b1410;
   color: #fff;
 }
 
-/* --- media + scrim ------------------------------------------------------ */
+/* --- media + scrim -------------------------------------------------------- */
 .xe-hero .xe-hero__media {
   position: absolute;
   inset: 0;
@@ -33,29 +36,37 @@
 .xe-hero.xe-hero--img-top .xe-hero__media img { object-position: top; }
 .xe-hero.xe-hero--img-bottom .xe-hero__media img { object-position: bottom; }
 
-/* scrim keeps overlaid text at WCAG 2.2 AA contrast over any photo */
+/* heavier at the bottom so bottom-anchored text stays legible over any photo */
 .xe-hero .xe-hero__media::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, rgb(0 0 0 / 55%), rgb(0 0 0 / 35%));
+  background: linear-gradient(
+    180deg,
+    rgb(0 0 0 / 10%) 0%,
+    rgb(0 0 0 / 20%) 45%,
+    rgb(0 0 0 / 70%) 100%
+  );
 }
 
-/* --- heights ------------------------------------------------------------ */
-.xe-hero.xe-hero--responsive { min-height: clamp(320px, 45vw, 560px); }
-.xe-hero.xe-hero--tall { min-height: 560px; }
-.xe-hero.xe-hero--standard { min-height: 420px; }
-.xe-hero.xe-hero--compact { min-height: 280px; }
+/* --- heights --------------------------------------------------------------- */
+.xe-hero.xe-hero--responsive { min-height: clamp(360px, 55vw, 620px); }
+.xe-hero.xe-hero--tall { min-height: 620px; }
+.xe-hero.xe-hero--standard { min-height: 460px; }
+.xe-hero.xe-hero--compact { min-height: 320px; }
 
-/* --- content ------------------------------------------------------------ */
+/* --- content: bottom-anchored, left-led like the reference ----------------- */
 .xe-hero .xe-hero__content {
+  position: relative;
   width: 100%;
-  max-width: 1200px;
-  padding: 48px 24px;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 48px 32px 56px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
+  align-self: end;
 }
 
 .xe-hero.xe-hero--align-center .xe-hero__content {
@@ -68,50 +79,80 @@
   text-align: left;
 }
 
+/* --- title: bold, condensed, uppercase, high-impact ------------------------ */
 .xe-hero .xe-hero__title {
   margin: 0;
-  font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
-  line-height: 1.15;
-  max-width: 20ch;
+  font-family: 'Oswald', 'Arial Narrow', 'Haettenschweiler', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-size: clamp(2.5rem, 1.6rem + 5vw, 5.5rem);
+  line-height: 0.95;
+  max-width: 18ch;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 35%);
 }
 
 .xe-hero .xe-hero__subtitle {
   margin: 0;
-  font-size: clamp(1rem, 0.95rem + 0.4vw, 1.25rem);
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.1rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
   max-width: 55ch;
+  opacity: 0.9;
 }
 
-/* --- actions ------------------------------------------------------------ */
+/* --- actions: rectangular, arrow-tagged, primary solid / secondary outline - */
 .xe-hero .xe-hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .xe-hero .xe-hero__action {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  min-height: 44px;          /* minimum target size */
-  padding: 10px 24px;
-  border-radius: 999px;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 0.95rem;
   font-weight: 600;
+  letter-spacing: 0.02em;
   text-decoration: none;
   border: 2px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Decorative arrow. NOTE: CSS-generated content is announced inconsistently
+   across screen readers — if strict WCAG 2.2 AA sign-off requires
+   guaranteed suppression, move this into xe-hero.js as an aria-hidden
+   span instead. */
+.xe-hero .xe-hero__action::after {
+  content: '\2192';
+  font-weight: 700;
 }
 
 .xe-hero .xe-hero__action--primary {
-  background: #0057b8;
+  background: #8a2b2b;
+  border-color: #8a2b2b;
   color: #fff;
 }
 
-.xe-hero .xe-hero__action--light {
-  background: #fff;
-  color: #0b2d3c;
+.xe-hero .xe-hero__action--primary:hover {
+  background: #a53535;
+  border-color: #a53535;
 }
 
-.xe-hero .xe-hero__action:hover { filter: brightness(1.08); }
+.xe-hero .xe-hero__action--light {
+  background: transparent;
+  border-color: rgb(255 255 255 / 80%);
+  color: #fff;
+}
+
+.xe-hero .xe-hero__action--light:hover {
+  background: rgb(255 255 255 / 12%);
+}
 
 .xe-hero .xe-hero__action:focus-visible {
   outline: 3px solid #fff;
@@ -120,12 +161,13 @@
 
 /* --- breakpoints: 768 / 375 -------------------------------------------- */
 @media (width <= 768px) {
-  .xe-hero .xe-hero__content { padding: 40px 20px; }
-  .xe-hero.xe-hero--tall { min-height: 460px; }
+  .xe-hero .xe-hero__content { padding: 36px 24px 40px; }
+  .xe-hero.xe-hero--tall { min-height: 520px; }
 }
 
 @media (width <= 375px) {
-  .xe-hero .xe-hero__content { padding: 32px 16px; }
+  .xe-hero .xe-hero__content { padding: 28px 18px 32px; }
+  .xe-hero .xe-hero__title { font-size: clamp(2rem, 1.5rem + 6vw, 3rem); }
   .xe-hero .xe-hero__actions { width: 100%; flex-direction: column; }
-  .xe-hero .xe-hero__action { width: 100%; }
+  .xe-hero .xe-hero__action { width: 100%; justify-content: center; }
 }

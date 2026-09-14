@@ -1,7 +1,7 @@
 {
   "definitions": [
     {
-      "title": "XE-Hero",
+      "title": "XE Hero",
       "id": "xe-hero",
       "plugins": {
         "xwalk": {
@@ -17,7 +17,7 @@
       }
     },
     {
-      "title": "Hero Action",
+      "title": "XE Hero Action",
       "id": "xe-hero-action",
       "plugins": {
         "xwalk": {
@@ -50,14 +50,22 @@
           "component": "text",
           "name": "subtitle",
           "label": "Subtitle",
-          "description": "Optional sub-label.",
+          "description": "Optional sub-label shown under the title.",
           "valueType": "string"
         },
         {
           "component": "reference",
           "name": "image",
           "label": "Background image (DAM)",
+          "description": "Select an image from the DAM. Takes priority over Image URL if both are set.",
           "multi": false,
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "imageUrl",
+          "label": "Image URL",
+          "description": "Optional. Use only if the asset is not available in the DAM.",
           "valueType": "string"
         },
         {
