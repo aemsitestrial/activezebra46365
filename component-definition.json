@@ -882,6 +882,85 @@
               }
             }
           }
+        },
+        {
+          "title": "XE Featured Cards",
+          "id": "xe-featured-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "xe-featured-cards",
+                  "model": "xe-featured-cards",
+                  "filter": "xe-featured-cards",
+                  "heading": "Our Services",
+                  "subheading": "Everything you need, all in one place.",
+                  "alignment": "left",
+                  "background": "default",
+                  "cardStyle": "surface",
+                  "cardCount": "4",
+                  "showIcon": "false",
+                  "showActionIcon": "true",
+                  "card_1": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Card",
+                    "model": "xe-featured-card",
+                    "cardTitle": "Billing & Payment",
+                    "cardDescription": "View your current bill, make payments, and set up autopay.",
+                    "actionText": "View Bill",
+                    "actionLink": "#"
+                  },
+                  "card_2": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Card",
+                    "model": "xe-featured-card",
+                    "cardTitle": "Outage Center",
+                    "cardDescription": "Report an outage, check restoration status, and get alerts.",
+                    "actionText": "Report Outage",
+                    "actionLink": "#"
+                  },
+                  "card_3": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Card",
+                    "model": "xe-featured-card",
+                    "cardTitle": "Save Energy",
+                    "cardDescription": "Explore rebates, energy tips, and programs to lower your bill.",
+                    "actionText": "Explore Programs",
+                    "actionLink": "#"
+                  },
+                  "card_4": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block/item",
+                    "name": "Card",
+                    "model": "xe-featured-card",
+                    "cardTitle": "Start, Stop, Move",
+                    "cardDescription": "Start new service, transfer, or stop service at your current address.",
+                    "actionText": "Manage Service",
+                    "actionLink": "#"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "XE Featured Card",
+          "id": "xe-featured-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Card",
+                  "model": "xe-featured-card",
+                  "cardTitle": "Card title",
+                  "cardDescription": "Short supporting description for this card.",
+                  "actionText": "Learn more",
+                  "actionLink": "#"
+                }
+              }
+            }
+          }
         }
       ]
     },

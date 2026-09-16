@@ -1,0 +1,234 @@
+/* xe-featured-cards block
+   Reference design: centered section heading + subheading, grid of cards
+   on a soft surface tint, dark card titles, outlined red action links
+   with a trailing arrow.
+   Axes: alignment (left|center)
+         background (default|subtle|muted)
+         card style (surface|image|destructured)
+         card count (2-6 per row; destructured is forced to 2) */
+
+.xe-featured-cards {
+  --xe-cards-per-row: 4;
+  --xe-card-surface: #fdf1ee;
+  --xe-card-accent: #c8102e;
+  --xe-card-ink: #1a1a1a;
+  --xe-card-muted-ink: #555;
+
+  width: 100%;
+  padding: 56px 24px;
+  background: #fff;
+}
+
+.xe-featured-cards.xe-featured-cards--bg-subtle { background: #faf7f6; }
+.xe-featured-cards.xe-featured-cards--bg-muted { background: #f1ecea; }
+
+/* --- header ---------------------------------------------------------------- */
+.xe-featured-cards .xe-featured-cards__header {
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.xe-featured-cards .xe-featured-cards__heading {
+  margin: 0 0 8px;
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--xe-card-ink);
+}
+
+.xe-featured-cards .xe-featured-cards__subheading {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--xe-card-muted-ink);
+}
+
+/* --- grid ------------------------------------------------------------------ */
+.xe-featured-cards .xe-featured-cards__grid {
+  list-style: none;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--xe-cards-per-row), minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* --- card: surface style (default) ---------------------------------------- */
+.xe-featured-cards .xe-featured-cards__card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--xe-card-surface);
+  border-radius: 4px;
+  padding: 24px 22px 26px;
+}
+
+/* --- card: image style — image sits inside the card surface ---------------- */
+.xe-featured-cards.xe-featured-cards--image .xe-featured-cards__card {
+  padding: 0 0 26px;
+  overflow: hidden;
+}
+
+.xe-featured-cards.xe-featured-cards--image .xe-featured-cards__body {
+  padding: 0 22px;
+}
+
+/* --- card: destructured — no surface, image floats above the text ---------- */
+.xe-featured-cards.xe-featured-cards--destructured .xe-featured-cards__card {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  gap: 16px;
+}
+
+.xe-featured-cards.xe-featured-cards--destructured .xe-featured-cards__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* --- media ----------------------------------------------------------------- */
+.xe-featured-cards .xe-featured-cards__media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #e9e9e9;
+}
+
+.xe-featured-cards .xe-featured-cards__media picture,
+.xe-featured-cards .xe-featured-cards__media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Checkerboard placeholder shown until an asset is selected, so the grid
+   keeps its rhythm while authoring. */
+.xe-featured-cards .xe-featured-cards__media--empty {
+  background-color: #f4f4f4;
+  background-image:
+    linear-gradient(45deg, #e2e2e2 25%, transparent 25%, transparent 75%, #e2e2e2 75%),
+    linear-gradient(45deg, #e2e2e2 25%, transparent 25%, transparent 75%, #e2e2e2 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+/* --- card body ------------------------------------------------------------- */
+.xe-featured-cards .xe-featured-cards__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.xe-featured-cards .xe-featured-cards__icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  color: var(--xe-card-accent);
+}
+
+.xe-featured-cards .xe-featured-cards__card-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--xe-card-ink);
+}
+
+.xe-featured-cards .xe-featured-cards__card-description {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--xe-card-muted-ink);
+}
+
+/* --- action ---------------------------------------------------------------- */
+.xe-featured-cards .xe-featured-cards__action {
+  align-self: flex-start;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 6px 14px;
+  border: 1px solid var(--xe-card-accent);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--xe-card-accent);
+  background: transparent;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Decorative arrow. NOTE: CSS-generated content is announced inconsistently
+   across screen readers. If strict WCAG 2.2 AA sign-off requires guaranteed
+   suppression, move this into the JS as an aria-hidden span instead. */
+.xe-featured-cards .xe-featured-cards__action--with-icon::after {
+  content: '\2192';
+  font-weight: 700;
+  transition: transform 0.15s ease;
+}
+
+.xe-featured-cards .xe-featured-cards__action:hover {
+  background: var(--xe-card-accent);
+  color: #fff;
+}
+
+.xe-featured-cards .xe-featured-cards__action:hover::after {
+  transform: translateX(2px);
+}
+
+.xe-featured-cards .xe-featured-cards__action:focus-visible {
+  outline: 3px solid var(--xe-card-accent);
+  outline-offset: 2px;
+}
+
+/* --- alignment -------------------------------------------------------------- */
+.xe-featured-cards.xe-featured-cards--align-left .xe-featured-cards__header {
+  text-align: left;
+}
+
+.xe-featured-cards.xe-featured-cards--align-center .xe-featured-cards__card {
+  text-align: center;
+  align-items: center;
+}
+
+.xe-featured-cards.xe-featured-cards--align-center .xe-featured-cards__body {
+  align-items: center;
+}
+
+.xe-featured-cards.xe-featured-cards--align-center .xe-featured-cards__action {
+  align-self: center;
+}
+
+/* --- breakpoints: 1024 / 768 / 375 ------------------------------------------ */
+@media (width <= 1024px) {
+  .xe-featured-cards .xe-featured-cards__grid {
+    grid-template-columns: repeat(min(var(--xe-cards-per-row), 3), minmax(0, 1fr));
+  }
+}
+
+@media (width <= 768px) {
+  .xe-featured-cards { padding: 40px 20px; }
+
+  .xe-featured-cards .xe-featured-cards__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (width <= 375px) {
+  .xe-featured-cards { padding: 32px 16px; }
+
+  .xe-featured-cards .xe-featured-cards__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .xe-featured-cards .xe-featured-cards__action { width: 100%; justify-content: center; }
+}

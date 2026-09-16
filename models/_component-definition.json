@@ -78,6 +78,9 @@
         },
         {
           "...": "../blocks/sticky-cta/_*.json#/definitions"
+        },
+        {
+          "...": "../blocks/xe-featured-cards/_*.json#/definitions"
         }
       ]
     },
