@@ -61,8 +61,27 @@
             {
               "name": "Columns",
               "value": "columns"
+            },
+            {
+              "name": "Zone — Orientation",
+              "value": "zone-orientation"
+            },
+            {
+              "name": "Zone — Awareness",
+              "value": "zone-awareness"
+            },
+            {
+              "name": "Zone — Primary Actions",
+              "value": "zone-primary-actions"
+            },
+            {
+              "name": "Zone — Supporting Content",
+              "value": "zone-supporting"
+            },
+            {
+              "name": "Zone — Trust & Credibility",
+              "value": "zone-trust"
             }
-            
           ]
         }
       ]
