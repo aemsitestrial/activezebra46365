@@ -12,8 +12,13 @@ import { decorateRichtext } from './editor-support-rte.js';
 import { decorateMain } from './scripts.js';
 
 function applyZoneSectionFilters() {
-  document.querySelectorAll('main .section.zone-orientation').forEach((section) => {
+  const sections = document.querySelectorAll('main .section.zone-orientation');
+  // eslint-disable-next-line no-console
+  console.log('[content-hub] zone-orientation sections found:', sections.length, [...sections]);
+  sections.forEach((section) => {
     section.setAttribute('data-aue-filter', 'section-orientation');
+    // eslint-disable-next-line no-console
+    console.log('[content-hub] set data-aue-filter=section-orientation on', section);
   });
 }
 
