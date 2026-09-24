@@ -12,13 +12,8 @@ import { decorateRichtext } from './editor-support-rte.js';
 import { decorateMain } from './scripts.js';
 
 function applyZoneSectionFilters() {
-  const sections = document.querySelectorAll('main .section.zone-orientation');
-  // eslint-disable-next-line no-console
-  console.log('[content-hub] zone-orientation sections found:', sections.length, [...sections]);
-  sections.forEach((section) => {
+  document.querySelectorAll('main .section.zone-orientation').forEach((section) => {
     section.setAttribute('data-aue-filter', 'section-orientation');
-    // eslint-disable-next-line no-console
-    console.log('[content-hub] set data-aue-filter=section-orientation on', section);
   });
 }
 
@@ -52,6 +47,7 @@ async function applyChanges(event) {
       await loadSections(newMain);
       element.remove();
       newMain.style.display = null;
+      applyZoneSectionFilters();
       // eslint-disable-next-line no-use-before-define
       attachEventListners(newMain);
       return true;
@@ -73,6 +69,7 @@ async function applyChanges(event) {
         await loadBlock(newBlock);
         block.remove();
         newBlock.style.display = null;
+        applyZoneSectionFilters();
         return true;
       }
     } else {
@@ -92,6 +89,7 @@ async function applyChanges(event) {
           await loadSections(parentElement);
           element.remove();
           newSection.style.display = null;
+          applyZoneSectionFilters();
         } else {
           element.replaceWith(...newElements);
           decorateButtons(parentElement);
