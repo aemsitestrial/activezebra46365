@@ -11,32 +11,9 @@ import {
 import { decorateRichtext } from './editor-support-rte.js';
 import { decorateMain } from './scripts.js';
 
-const ZONE_FILTERS = {
-  'zone-orientation': 'section-orientation',
-};
-
-function applyZoneFilter(section) {
-  Object.entries(ZONE_FILTERS).forEach(([zoneClass, filterId]) => {
-    if (section.classList.contains(zoneClass) && section.getAttribute('data-aue-filter') !== filterId) {
-      section.setAttribute('data-aue-filter', filterId);
-    }
-  });
-}
-
-function watchSectionFilters(main) {
-  // Apply immediately for any already-instrumented sections
-  main.querySelectorAll('.section').forEach(applyZoneFilter);
-
-  // Re-apply whenever UE injects/updates data-aue-filter on sections
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach(({ target }) => {
-      if (target.classList.contains('section')) applyZoneFilter(target);
-    });
-  });
-  observer.observe(main, {
-    subtree: true,
-    attributes: true,
-    attributeFilter: ['data-aue-filter'],
+function applyZoneSectionFilters() {
+  document.querySelectorAll('main .section.zone-orientation').forEach((section) => {
+    section.setAttribute('data-aue-filter', 'section-orientation');
   });
 }
 
@@ -139,8 +116,12 @@ async function attachEventListners(main) {
   }));
   const module = await import('./form-editor-support.js');
   module.attachEventListners(main);
+
+  if (document.documentElement.classList.contains('adobe-ue-edit')) {
+    applyZoneSectionFilters();
+  }
+  document.body.addEventListener('aue:ui-edit', applyZoneSectionFilters);
 }
 
 const main = document.querySelector('main');
-watchSectionFilters(main);
 attachEventListners(main);
