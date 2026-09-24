@@ -75,6 +75,21 @@
               }
             }
           }
+        },
+        {
+          "title": "Content Hub — Orientation",
+          "id": "section-orientation",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "model": "section",
+                  "style": "zone-orientation"
+                }
+              }
+            }
+          }
         }
       ]
     },

@@ -39,6 +39,13 @@
     ]
   },
   {
+    "id": "section-orientation",
+    "components": [
+      "xe-hero",
+      "xe-featured-cards"
+    ]
+  },
+  {
     "id": "cards",
     "components": [
       "card"

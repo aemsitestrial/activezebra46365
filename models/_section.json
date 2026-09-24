@@ -13,6 +13,21 @@
           }
         }
       }
+    },
+    {
+      "title": "Content Hub — Orientation",
+      "id": "section-orientation",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "model": "section",
+              "style": "zone-orientation"
+            }
+          }
+        }
+      }
     }
   ],
   "models": [
@@ -119,6 +134,13 @@
         "reward-sticky",
         "sticky-cta",
         "quiz"
+      ]
+    },
+    {
+      "id": "section-orientation",
+      "components": [
+        "xe-hero",
+        "xe-featured-cards"
       ]
     }
   ]
