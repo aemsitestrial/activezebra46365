@@ -11,6 +11,20 @@ import {
 import { decorateRichtext } from './editor-support-rte.js';
 import { decorateMain } from './scripts.js';
 
+const ZONE_FILTERS = {
+  'zone-orientation': 'section-orientation',
+};
+
+function decorateSectionFilters(element) {
+  element.querySelectorAll('.section').forEach((section) => {
+    Object.entries(ZONE_FILTERS).forEach(([zoneClass, filterId]) => {
+      if (section.classList.contains(zoneClass)) {
+        section.setAttribute('data-aue-filter', filterId);
+      }
+    });
+  });
+}
+
 async function applyChanges(event) {
   // redecorate default content and blocks on patches (in the properties rail)
   const { detail } = event;
@@ -77,6 +91,7 @@ async function applyChanges(event) {
           decorateIcons(newSection);
           decorateRichtext(newSection);
           decorateSections(parentElement);
+          decorateSectionFilters(parentElement);
           decorateBlocks(parentElement);
           await loadSections(parentElement);
           element.remove();
@@ -112,4 +127,6 @@ async function attachEventListners(main) {
   module.attachEventListners(main);
 }
 
-attachEventListners(document.querySelector('main'));
+const main = document.querySelector('main');
+decorateSectionFilters(main);
+attachEventListners(main);
