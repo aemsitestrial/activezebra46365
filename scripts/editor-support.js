@@ -11,9 +11,27 @@ import {
 import { decorateRichtext } from './editor-support-rte.js';
 import { decorateMain } from './scripts.js';
 
+const ZONE_FILTER_MAP = { 'zone-orientation': 'section-orientation' };
+
 function applyZoneSectionFilters() {
-  document.querySelectorAll('main .section.zone-orientation').forEach((section) => {
-    section.setAttribute('data-aue-filter', 'section-orientation');
+  Object.entries(ZONE_FILTER_MAP).forEach(([zoneClass, filterId]) => {
+    document.querySelectorAll(`main .section.${zoneClass}`).forEach((section) => {
+      if (section.getAttribute('data-aue-filter') !== filterId) {
+        section.setAttribute('data-aue-filter', filterId);
+      }
+    });
+  });
+}
+
+function startZoneFilterWatcher() {
+  applyZoneSectionFilters();
+  const main = document.querySelector('main');
+  if (!main) return;
+  new MutationObserver(applyZoneSectionFilters).observe(main, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['class', 'data-aue-filter'],
   });
 }
 
@@ -47,7 +65,6 @@ async function applyChanges(event) {
       await loadSections(newMain);
       element.remove();
       newMain.style.display = null;
-      applyZoneSectionFilters();
       // eslint-disable-next-line no-use-before-define
       attachEventListners(newMain);
       return true;
@@ -69,7 +86,6 @@ async function applyChanges(event) {
         await loadBlock(newBlock);
         block.remove();
         newBlock.style.display = null;
-        applyZoneSectionFilters();
         return true;
       }
     } else {
@@ -89,7 +105,6 @@ async function applyChanges(event) {
           await loadSections(parentElement);
           element.remove();
           newSection.style.display = null;
-          applyZoneSectionFilters();
         } else {
           element.replaceWith(...newElements);
           decorateButtons(parentElement);
@@ -119,12 +134,8 @@ async function attachEventListners(main) {
   }));
   const module = await import('./form-editor-support.js');
   module.attachEventListners(main);
-
-  if (document.documentElement.classList.contains('adobe-ue-edit')) {
-    applyZoneSectionFilters();
-  }
-  document.body.addEventListener('aue:ui-edit', applyZoneSectionFilters);
 }
 
 const main = document.querySelector('main');
+startZoneFilterWatcher();
 attachEventListners(main);

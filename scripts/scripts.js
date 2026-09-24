@@ -345,8 +345,20 @@ async function loadLazy(doc) {
   const main = doc.querySelector('main');
   await loadSections(main);
 
+  const loadUEEditorSupport = () => import('./editor-support.js');
   if (document.documentElement.classList.contains('adobe-ue-edit')) {
-    import('./editor-support.js');
+    loadUEEditorSupport();
+  } else {
+    const ueClassObserver = new MutationObserver(() => {
+      if (document.documentElement.classList.contains('adobe-ue-edit')) {
+        ueClassObserver.disconnect();
+        loadUEEditorSupport();
+      }
+    });
+    ueClassObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
   }
 
   const { hash } = window.location;
