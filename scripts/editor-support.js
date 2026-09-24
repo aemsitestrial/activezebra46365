@@ -15,13 +15,28 @@ const ZONE_FILTERS = {
   'zone-orientation': 'section-orientation',
 };
 
-function decorateSectionFilters(element) {
-  element.querySelectorAll('.section').forEach((section) => {
-    Object.entries(ZONE_FILTERS).forEach(([zoneClass, filterId]) => {
-      if (section.classList.contains(zoneClass)) {
-        section.setAttribute('data-aue-filter', filterId);
-      }
+function applyZoneFilter(section) {
+  Object.entries(ZONE_FILTERS).forEach(([zoneClass, filterId]) => {
+    if (section.classList.contains(zoneClass) && section.getAttribute('data-aue-filter') !== filterId) {
+      section.setAttribute('data-aue-filter', filterId);
+    }
+  });
+}
+
+function watchSectionFilters(main) {
+  // Apply immediately for any already-instrumented sections
+  main.querySelectorAll('.section').forEach(applyZoneFilter);
+
+  // Re-apply whenever UE injects/updates data-aue-filter on sections
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach(({ target }) => {
+      if (target.classList.contains('section')) applyZoneFilter(target);
     });
+  });
+  observer.observe(main, {
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['data-aue-filter'],
   });
 }
 
@@ -91,7 +106,6 @@ async function applyChanges(event) {
           decorateIcons(newSection);
           decorateRichtext(newSection);
           decorateSections(parentElement);
-          decorateSectionFilters(parentElement);
           decorateBlocks(parentElement);
           await loadSections(parentElement);
           element.remove();
@@ -128,5 +142,5 @@ async function attachEventListners(main) {
 }
 
 const main = document.querySelector('main');
-decorateSectionFilters(main);
+watchSectionFilters(main);
 attachEventListners(main);
