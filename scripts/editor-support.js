@@ -12,12 +12,44 @@ import { decorateRichtext } from './editor-support-rte.js';
 import { decorateMain } from './scripts.js';
 
 const ZONE_FILTER_MAP = { 'zone-orientation': 'section-orientation' };
+const REQUIRED_ZONES = ['zone-orientation'];
+
+function injectRequiredZoneStyles() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .section[data-zone-required] { position: relative; }
+    .section[data-zone-required]::before {
+      content: 'Required — cannot be deleted';
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: #cc4b37;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 2px 6px;
+      border-radius: 3px;
+      z-index: 9999;
+      pointer-events: none;
+    }
+  `;
+  document.head.appendChild(style);
+}
 
 function applyZoneSectionFilters() {
   Object.entries(ZONE_FILTER_MAP).forEach(([zoneClass, filterId]) => {
     document.querySelectorAll(`main .section.${zoneClass}`).forEach((section) => {
       if (section.getAttribute('data-aue-filter') !== filterId) {
         section.setAttribute('data-aue-filter', filterId);
+      }
+    });
+  });
+
+  REQUIRED_ZONES.forEach((zoneClass) => {
+    document.querySelectorAll(`main .section.${zoneClass}`).forEach((section) => {
+      if (!section.hasAttribute('data-zone-required')) {
+        section.setAttribute('data-zone-required', 'true');
       }
     });
   });
@@ -120,12 +152,31 @@ async function applyChanges(event) {
 }
 
 async function attachEventListners(main) {
+  main?.addEventListener('aue:content-remove', async (event) => {
+    event.stopPropagation();
+    const resource = event.detail?.request?.target?.resource;
+    if (resource) {
+      const target = document.querySelector(`[data-aue-resource="${resource}"]`);
+      if (target?.hasAttribute('data-zone-required')) {
+        // eslint-disable-next-line no-alert
+        window.alert(
+          'This is a required zone section and should not be removed.\n\n'
+          + 'The section has been deleted from the page. Please add it back '
+          + 'using the "Content Hub — Orientation" section type before publishing.',
+        );
+        window.location.reload();
+        return;
+      }
+    }
+    const applied = await applyChanges(event);
+    if (!applied) window.location.reload();
+  });
+
   [
     'aue:content-patch',
     'aue:content-update',
     'aue:content-add',
     'aue:content-move',
-    'aue:content-remove',
     'aue:content-copy',
   ].forEach((eventType) => main?.addEventListener(eventType, async (event) => {
     event.stopPropagation();
@@ -137,5 +188,6 @@ async function attachEventListners(main) {
 }
 
 const main = document.querySelector('main');
+injectRequiredZoneStyles();
 startZoneFilterWatcher();
 attachEventListners(main);
