@@ -120,12 +120,25 @@ async function applyChanges(event) {
 }
 
 async function attachEventListners(main) {
+  main?.addEventListener('aue:content-remove', async (event) => {
+    event.stopPropagation();
+    const resource = event.detail?.request?.target?.resource;
+    const target = resource && document.querySelector(`[data-aue-resource="${resource}"]`);
+    if (target?.matches('main > .section')) {
+      // eslint-disable-next-line no-alert
+      window.alert('Page sections are fixed and cannot be removed. The section structure is defined by the page template.');
+      window.location.reload();
+      return;
+    }
+    const applied = await applyChanges(event);
+    if (!applied) window.location.reload();
+  });
+
   [
     'aue:content-patch',
     'aue:content-update',
     'aue:content-add',
     'aue:content-move',
-    'aue:content-remove',
     'aue:content-copy',
   ].forEach((eventType) => main?.addEventListener(eventType, async (event) => {
     event.stopPropagation();
