@@ -1,4 +1,4 @@
-#  Zone Block Filter
+# Content Hub Zone Block Filter
 
 How to restrict which blocks authors can add to a specific Content Hub zone section in the Universal Editor (UE).
 
@@ -203,28 +203,6 @@ New sections created using the "Content Hub — My Zone" type (Step 3) have the 
 
 ---
 
-## Step 5 (Optional) — Mark a Zone as Required
-
-If a zone section must always be present on the page (e.g. Orientation), you can flag it so:
-
-- A **red "Required — cannot be deleted" badge** appears on the section in edit mode.
-- An **alert dialog** is shown if the author deletes it, telling them to add it back.
-- The page **reloads** immediately after the alert so the author sees the true current state.
-
-> **Important limitation**: UE deletes the section from AEM's JCR *before* the page JavaScript sees the event. The JavaScript cannot cancel the server-side deletion. The badge and alert are a strong deterrent and clear recovery guide, not a hard block.
-
-### How to mark a zone as required
-
-In `scripts/editor-support.js`, add the zone's CSS class to the `REQUIRED_ZONES` array:
-
-```js
-const REQUIRED_ZONES = ['zone-orientation', 'zone-my-zone']; // add here
-```
-
-No other changes are needed. `applyZoneSectionFilters()` sets `data-zone-required="true"` on every matching section, and `injectRequiredZoneStyles()` renders the badge. The `aue:content-remove` handler checks for that attribute before processing any deletion.
-
----
-
 ## Summary Checklist
 
 | Step | File | What to add |
@@ -235,4 +213,3 @@ No other changes are needed. `applyZoneSectionFilters()` sets `data-zone-require
 | 3a | `models/_section.json` → `definitions` | New section type definition |
 | 3b | `component-definition.json` → Sections group | Same definition (compiled copy) |
 | 4 | `scripts/editor-support.js` → `ZONE_FILTER_MAP` | One new key/value pair |
-| 5 *(optional)* | `scripts/editor-support.js` → `REQUIRED_ZONES` | Zone CSS class to mark as required |
