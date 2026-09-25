@@ -21,6 +21,13 @@ function applyZoneSectionFilters() {
       }
     });
   });
+
+  // Lock all sections so UE suppresses delete and move actions
+  document.querySelectorAll('main > .section[data-aue-resource]').forEach((section) => {
+    if (section.getAttribute('data-aue-behavior') !== 'locked') {
+      section.setAttribute('data-aue-behavior', 'locked');
+    }
+  });
 }
 
 function startZoneFilterWatcher() {
@@ -31,7 +38,7 @@ function startZoneFilterWatcher() {
     childList: true,
     subtree: true,
     attributes: true,
-    attributeFilter: ['class', 'data-aue-filter'],
+    attributeFilter: ['class', 'data-aue-filter', 'data-aue-behavior'],
   });
 }
 
