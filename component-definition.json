@@ -92,15 +92,15 @@
           }
         },
         {
-          "title": "Category LP — Orientation",
-          "id": "section-cat-orientation",
+          "title": "LP — Orientation",
+          "id": "section-lp-orientation",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/section/v1/section",
                 "template": {
                   "model": "section",
-                  "style": "zone-cat-orientation"
+                  "style": "zone-lp-orientation"
                 }
               }
             }
@@ -137,15 +137,15 @@
           }
         },
         {
-          "title": "Category LP — Primary Actions",
-          "id": "section-cat-primary-actions",
+          "title": "LP — Primary Actions",
+          "id": "section-lp-primary-actions",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/section/v1/section",
                 "template": {
                   "model": "section",
-                  "style": "zone-cat-primary-actions"
+                  "style": "zone-lp-primary-actions"
                 }
               }
             }
@@ -197,21 +197,6 @@
           }
         },
         {
-          "title": "Content LP — Orientation & Awareness",
-          "id": "section-con-orientation",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/section/v1/section",
-                "template": {
-                  "model": "section",
-                  "style": "zone-con-orientation"
-                }
-              }
-            }
-          }
-        },
-        {
           "title": "Content LP — Value & Education",
           "id": "section-con-value-edu",
           "plugins": {
@@ -221,21 +206,6 @@
                 "template": {
                   "model": "section",
                   "style": "zone-con-value-edu"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Content LP — Primary Actions",
-          "id": "section-con-primary-actions",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/section/v1/section",
-                "template": {
-                  "model": "section",
-                  "style": "zone-con-primary-actions"
                 }
               }
             }

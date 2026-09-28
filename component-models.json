@@ -181,8 +181,12 @@
             "value": "zone-trust"
           },
           {
-            "name": "Category LP — Orientation",
-            "value": "zone-cat-orientation"
+            "name": "LP — Orientation",
+            "value": "zone-lp-orientation"
+          },
+          {
+            "name": "LP — Primary Actions",
+            "value": "zone-lp-primary-actions"
           },
           {
             "name": "Category LP — Shortcuts",
@@ -191,10 +195,6 @@
           {
             "name": "Category LP — Awareness",
             "value": "zone-cat-awareness"
-          },
-          {
-            "name": "Category LP — Primary Actions",
-            "value": "zone-cat-primary-actions"
           },
           {
             "name": "Category LP — Supporting Content",
@@ -209,16 +209,8 @@
             "value": "zone-cat-support-assist"
           },
           {
-            "name": "Content LP — Orientation & Awareness",
-            "value": "zone-con-orientation"
-          },
-          {
             "name": "Content LP — Value & Education",
             "value": "zone-con-value-edu"
-          },
-          {
-            "name": "Content LP — Primary Actions",
-            "value": "zone-con-primary-actions"
           },
           {
             "name": "Content LP — Supporting Content",

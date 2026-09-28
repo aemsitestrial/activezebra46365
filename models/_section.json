@@ -30,15 +30,15 @@
       }
     },
     {
-      "title": "Category LP — Orientation",
-      "id": "section-cat-orientation",
+      "title": "LP — Orientation",
+      "id": "section-lp-orientation",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/section/v1/section",
             "template": {
               "model": "section",
-              "style": "zone-cat-orientation"
+              "style": "zone-lp-orientation"
             }
           }
         }
@@ -75,15 +75,15 @@
       }
     },
     {
-      "title": "Category LP — Primary Actions",
-      "id": "section-cat-primary-actions",
+      "title": "LP — Primary Actions",
+      "id": "section-lp-primary-actions",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/section/v1/section",
             "template": {
               "model": "section",
-              "style": "zone-cat-primary-actions"
+              "style": "zone-lp-primary-actions"
             }
           }
         }
@@ -135,21 +135,6 @@
       }
     },
     {
-      "title": "Content LP — Orientation & Awareness",
-      "id": "section-con-orientation",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/section/v1/section",
-            "template": {
-              "model": "section",
-              "style": "zone-con-orientation"
-            }
-          }
-        }
-      }
-    },
-    {
       "title": "Content LP — Value & Education",
       "id": "section-con-value-edu",
       "plugins": {
@@ -159,21 +144,6 @@
             "template": {
               "model": "section",
               "style": "zone-con-value-edu"
-            }
-          }
-        }
-      }
-    },
-    {
-      "title": "Content LP — Primary Actions",
-      "id": "section-con-primary-actions",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/section/v1/section",
-            "template": {
-              "model": "section",
-              "style": "zone-con-primary-actions"
             }
           }
         }
@@ -263,8 +233,12 @@
               "value": "zone-trust"
             },
             {
-              "name": "Category LP — Orientation",
-              "value": "zone-cat-orientation"
+              "name": "LP — Orientation",
+              "value": "zone-lp-orientation"
+            },
+            {
+              "name": "LP — Primary Actions",
+              "value": "zone-lp-primary-actions"
             },
             {
               "name": "Category LP — Shortcuts",
@@ -273,10 +247,6 @@
             {
               "name": "Category LP — Awareness",
               "value": "zone-cat-awareness"
-            },
-            {
-              "name": "Category LP — Primary Actions",
-              "value": "zone-cat-primary-actions"
             },
             {
               "name": "Category LP — Supporting Content",
@@ -291,16 +261,8 @@
               "value": "zone-cat-support-assist"
             },
             {
-              "name": "Content LP — Orientation & Awareness",
-              "value": "zone-con-orientation"
-            },
-            {
               "name": "Content LP — Value & Education",
               "value": "zone-con-value-edu"
-            },
-            {
-              "name": "Content LP — Primary Actions",
-              "value": "zone-con-primary-actions"
             },
             {
               "name": "Content LP — Supporting Content",
@@ -353,7 +315,7 @@
       ]
     },
     {
-      "id": "section-cat-orientation",
+      "id": "section-lp-orientation",
       "components": [
         "xe-hero",
         "xe-breadcrumb"
@@ -370,7 +332,7 @@
       "components": []
     },
     {
-      "id": "section-cat-primary-actions",
+      "id": "section-lp-primary-actions",
       "components": [
         "xe-quick-actions",
         "xe-featured-cards"
@@ -395,22 +357,8 @@
       ]
     },
     {
-      "id": "section-con-orientation",
-      "components": [
-        "xe-hero",
-        "xe-breadcrumb"
-      ]
-    },
-    {
       "id": "section-con-value-edu",
       "components": [
-        "xe-featured-cards"
-      ]
-    },
-    {
-      "id": "section-con-primary-actions",
-      "components": [
-        "xe-quick-actions",
         "xe-featured-cards"
       ]
     },

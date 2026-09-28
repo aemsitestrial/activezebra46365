@@ -44,7 +44,7 @@
     ]
   },
   {
-    "id": "section-cat-orientation",
+    "id": "section-lp-orientation",
     "components": [
       "xe-hero",
       "xe-breadcrumb"
@@ -61,7 +61,7 @@
     "components": []
   },
   {
-    "id": "section-cat-primary-actions",
+    "id": "section-lp-primary-actions",
     "components": [
       "xe-quick-actions",
       "xe-featured-cards"
@@ -86,22 +86,8 @@
     ]
   },
   {
-    "id": "section-con-orientation",
-    "components": [
-      "xe-hero",
-      "xe-breadcrumb"
-    ]
-  },
-  {
     "id": "section-con-value-edu",
     "components": [
-      "xe-featured-cards"
-    ]
-  },
-  {
-    "id": "section-con-primary-actions",
-    "components": [
-      "xe-quick-actions",
       "xe-featured-cards"
     ]
   },
