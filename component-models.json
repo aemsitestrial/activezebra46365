@@ -181,14 +181,6 @@
             "value": "zone-trust"
           },
           {
-            "name": "LP — Orientation",
-            "value": "zone-lp-orientation"
-          },
-          {
-            "name": "LP — Primary Actions",
-            "value": "zone-lp-primary-actions"
-          },
-          {
             "name": "Category LP — Shortcuts",
             "value": "zone-cat-shortcuts"
           },

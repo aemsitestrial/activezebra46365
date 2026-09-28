@@ -77,7 +77,7 @@
           }
         },
         {
-          "title": "Content Hub — Orientation",
+          "title": "Orientation",
           "id": "section-orientation",
           "plugins": {
             "xwalk": {
@@ -92,15 +92,15 @@
           }
         },
         {
-          "title": "LP — Orientation",
-          "id": "section-lp-orientation",
+          "title": "Primary Actions",
+          "id": "section-primary-actions",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/section/v1/section",
                 "template": {
                   "model": "section",
-                  "style": "zone-lp-orientation"
+                  "style": "zone-primary-actions"
                 }
               }
             }
@@ -131,21 +131,6 @@
                 "template": {
                   "model": "section",
                   "style": "zone-cat-awareness"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "LP — Primary Actions",
-          "id": "section-lp-primary-actions",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/section/v1/section",
-                "template": {
-                  "model": "section",
-                  "style": "zone-lp-primary-actions"
                 }
               }
             }

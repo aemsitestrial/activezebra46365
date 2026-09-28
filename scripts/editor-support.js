@@ -12,11 +12,9 @@ import { decorateRichtext } from './editor-support-rte.js';
 import { decorateMain } from './scripts.js';
 
 const ZONE_FILTER_MAP = {
-  // Content Hub zones
+  // Shared zones — reusable across any template
   'zone-orientation': 'section-orientation',
-  // Shared LP zones (Category LP + Content LP)
-  'zone-lp-orientation': 'section-lp-orientation',
-  'zone-lp-primary-actions': 'section-lp-primary-actions',
+  'zone-primary-actions': 'section-primary-actions',
   // Category LP — unique zones
   'zone-cat-shortcuts': 'section-cat-shortcuts',
   'zone-cat-awareness': 'section-cat-awareness',

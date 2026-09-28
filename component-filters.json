@@ -13,6 +13,9 @@
       "hero",
       "xe-hero",
       "xe-featured-cards",
+      "xe-quick-actions",
+      "xe-banner",
+      "xe-breadcrumb",
       "article",
       "cards",
       "columns",
@@ -40,14 +43,14 @@
     "id": "section-orientation",
     "components": [
       "xe-hero",
-      "xe-featured-cards"
+      "xe-breadcrumb"
     ]
   },
   {
-    "id": "section-lp-orientation",
+    "id": "section-primary-actions",
     "components": [
-      "xe-hero",
-      "xe-breadcrumb"
+      "xe-quick-actions",
+      "xe-featured-cards"
     ]
   },
   {
@@ -59,13 +62,6 @@
   {
     "id": "section-cat-awareness",
     "components": []
-  },
-  {
-    "id": "section-lp-primary-actions",
-    "components": [
-      "xe-quick-actions",
-      "xe-featured-cards"
-    ]
   },
   {
     "id": "section-cat-supporting",

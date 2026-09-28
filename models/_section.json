@@ -15,7 +15,7 @@
       }
     },
     {
-      "title": "Content Hub — Orientation",
+      "title": "Orientation",
       "id": "section-orientation",
       "plugins": {
         "xwalk": {
@@ -30,15 +30,15 @@
       }
     },
     {
-      "title": "LP — Orientation",
-      "id": "section-lp-orientation",
+      "title": "Primary Actions",
+      "id": "section-primary-actions",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/section/v1/section",
             "template": {
               "model": "section",
-              "style": "zone-lp-orientation"
+              "style": "zone-primary-actions"
             }
           }
         }
@@ -69,21 +69,6 @@
             "template": {
               "model": "section",
               "style": "zone-cat-awareness"
-            }
-          }
-        }
-      }
-    },
-    {
-      "title": "LP — Primary Actions",
-      "id": "section-lp-primary-actions",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/section/v1/section",
-            "template": {
-              "model": "section",
-              "style": "zone-lp-primary-actions"
             }
           }
         }
@@ -180,94 +165,26 @@
           "name": "style",
           "label": "Style",
           "options": [
-            {
-              "name": "Highlight",
-              "value": "highlight"
-            },
-            {
-              "name": "Numbered Features",
-              "value": "numbered"
-            },
-            {
-              "name": "Background Color",
-              "value": "background"
-            },
-            {
-              "name": "Card Tiles",
-              "value": "card-tiles"
-            },
-            {
-              "name": "Home",
-              "value": "home"
-            },
-            {
-              "name": "Article",
-              "value": "article"
-            },
-            {
-              "name": "Blog",
-              "value": "blog"
-            },
-            {
-              "name": "Columns",
-              "value": "columns"
-            },
-            {
-              "name": "Zone — Orientation",
-              "value": "zone-orientation"
-            },
-            {
-              "name": "Zone — Awareness",
-              "value": "zone-awareness"
-            },
-            {
-              "name": "Zone — Primary Actions",
-              "value": "zone-primary-actions"
-            },
-            {
-              "name": "Zone — Supporting Content",
-              "value": "zone-supporting"
-            },
-            {
-              "name": "Zone — Trust & Credibility",
-              "value": "zone-trust"
-            },
-            {
-              "name": "LP — Orientation",
-              "value": "zone-lp-orientation"
-            },
-            {
-              "name": "LP — Primary Actions",
-              "value": "zone-lp-primary-actions"
-            },
-            {
-              "name": "Category LP — Shortcuts",
-              "value": "zone-cat-shortcuts"
-            },
-            {
-              "name": "Category LP — Awareness",
-              "value": "zone-cat-awareness"
-            },
-            {
-              "name": "Category LP — Supporting Content",
-              "value": "zone-cat-supporting"
-            },
-            {
-              "name": "Category LP — Trust & Credibility",
-              "value": "zone-cat-trust"
-            },
-            {
-              "name": "Category LP — Support & Assistance",
-              "value": "zone-cat-support-assist"
-            },
-            {
-              "name": "Content LP — Value & Education",
-              "value": "zone-con-value-edu"
-            },
-            {
-              "name": "Content LP — Supporting Content",
-              "value": "zone-con-supporting"
-            }
+            { "name": "Highlight", "value": "highlight" },
+            { "name": "Numbered Features", "value": "numbered" },
+            { "name": "Background Color", "value": "background" },
+            { "name": "Card Tiles", "value": "card-tiles" },
+            { "name": "Home", "value": "home" },
+            { "name": "Article", "value": "article" },
+            { "name": "Blog", "value": "blog" },
+            { "name": "Columns", "value": "columns" },
+            { "name": "Zone — Orientation", "value": "zone-orientation" },
+            { "name": "Zone — Awareness", "value": "zone-awareness" },
+            { "name": "Zone — Primary Actions", "value": "zone-primary-actions" },
+            { "name": "Zone — Supporting Content", "value": "zone-supporting" },
+            { "name": "Zone — Trust & Credibility", "value": "zone-trust" },
+            { "name": "Category LP — Shortcuts", "value": "zone-cat-shortcuts" },
+            { "name": "Category LP — Awareness", "value": "zone-cat-awareness" },
+            { "name": "Category LP — Supporting Content", "value": "zone-cat-supporting" },
+            { "name": "Category LP — Trust & Credibility", "value": "zone-cat-trust" },
+            { "name": "Category LP — Support & Assistance", "value": "zone-cat-support-assist" },
+            { "name": "Content LP — Value & Education", "value": "zone-con-value-edu" },
+            { "name": "Content LP — Supporting Content", "value": "zone-con-supporting" }
           ]
         }
       ]
@@ -284,6 +201,9 @@
         "hero",
         "xe-hero",
         "xe-featured-cards",
+        "xe-quick-actions",
+        "xe-banner",
+        "xe-breadcrumb",
         "article",
         "cards",
         "columns",
@@ -311,14 +231,14 @@
       "id": "section-orientation",
       "components": [
         "xe-hero",
-        "xe-featured-cards"
+        "xe-breadcrumb"
       ]
     },
     {
-      "id": "section-lp-orientation",
+      "id": "section-primary-actions",
       "components": [
-        "xe-hero",
-        "xe-breadcrumb"
+        "xe-quick-actions",
+        "xe-featured-cards"
       ]
     },
     {
@@ -330,13 +250,6 @@
     {
       "id": "section-cat-awareness",
       "components": []
-    },
-    {
-      "id": "section-lp-primary-actions",
-      "components": [
-        "xe-quick-actions",
-        "xe-featured-cards"
-      ]
     },
     {
       "id": "section-cat-supporting",
