@@ -1,7 +1,9 @@
 [
   {
     "id": "main",
-    "components": []
+    "components": [
+      "section"
+    ]
   },
   {
     "id": "section",

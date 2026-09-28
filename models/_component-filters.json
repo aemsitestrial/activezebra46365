@@ -1,7 +1,7 @@
 [
   {
     "id": "main",
-    "components": []
+    "components": ["section"]
   },
   {
     "...": "./_section.json#/filters"
