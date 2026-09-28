@@ -90,6 +90,171 @@
               }
             }
           }
+        },
+        {
+          "title": "Category LP — Orientation",
+          "id": "section-cat-orientation",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "model": "section",
+                  "style": "zone-cat-orientation"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Category LP — Shortcuts",
+          "id": "section-cat-shortcuts",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "model": "section",
+                  "style": "zone-cat-shortcuts"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Category LP — Awareness",
+          "id": "section-cat-awareness",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "model": "section",
+                  "style": "zone-cat-awareness"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Category LP — Primary Actions",
+          "id": "section-cat-primary-actions",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "model": "section",
+                  "style": "zone-cat-primary-actions"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Category LP — Supporting Content",
+          "id": "section-cat-supporting",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "model": "section",
+                  "style": "zone-cat-supporting"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Category LP — Trust & Credibility",
+          "id": "section-cat-trust",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "model": "section",
+                  "style": "zone-cat-trust"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Category LP — Support & Assistance",
+          "id": "section-cat-support-assist",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "model": "section",
+                  "style": "zone-cat-support-assist"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Content LP — Orientation & Awareness",
+          "id": "section-con-orientation",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "model": "section",
+                  "style": "zone-con-orientation"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Content LP — Value & Education",
+          "id": "section-con-value-edu",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "model": "section",
+                  "style": "zone-con-value-edu"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Content LP — Primary Actions",
+          "id": "section-con-primary-actions",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "model": "section",
+                  "style": "zone-con-primary-actions"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Content LP — Supporting Content",
+          "id": "section-con-supporting",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "model": "section",
+                  "style": "zone-con-supporting"
+                }
+              }
+            }
+          }
         }
       ]
     },
@@ -972,6 +1137,79 @@
                   "cardDescription": "Short supporting description for this card.",
                   "actionText": "Learn more",
                   "actionLink": "#"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "XE Quick Actions",
+          "id": "xe-quick-actions",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "xe-quick-actions",
+                  "model": "xe-quick-actions",
+                  "filter": "xe-quick-actions",
+                  "background": "default",
+                  "cardCount": "3-up",
+                  "showIcons": "true",
+                  "showActionIcon": "true"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "XE Quick Action",
+          "id": "xe-quick-action",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Quick Action",
+                  "model": "xe-quick-action",
+                  "label": "Action label",
+                  "actionLink": "#"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "XE Banner",
+          "id": "xe-banner",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "xe-banner",
+                  "model": "xe-banner",
+                  "heading": "Need help?",
+                  "headingLevel": "h2",
+                  "size": "generous",
+                  "alignment": "center",
+                  "column": "single",
+                  "background": "default"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "XE Breadcrumb",
+          "id": "xe-breadcrumb",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "xe-breadcrumb",
+                  "model": "xe-breadcrumb"
                 }
               }
             }

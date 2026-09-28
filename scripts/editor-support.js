@@ -11,7 +11,23 @@ import {
 import { decorateRichtext } from './editor-support-rte.js';
 import { decorateMain } from './scripts.js';
 
-const ZONE_FILTER_MAP = { 'zone-orientation': 'section-orientation' };
+const ZONE_FILTER_MAP = {
+  // Content Hub zones
+  'zone-orientation': 'section-orientation',
+  // Category Landing Page zones
+  'zone-cat-orientation': 'section-cat-orientation',
+  'zone-cat-shortcuts': 'section-cat-shortcuts',
+  'zone-cat-awareness': 'section-cat-awareness',
+  'zone-cat-primary-actions': 'section-cat-primary-actions',
+  'zone-cat-supporting': 'section-cat-supporting',
+  'zone-cat-trust': 'section-cat-trust',
+  'zone-cat-support-assist': 'section-cat-support-assist',
+  // Content Landing Page zones
+  'zone-con-orientation': 'section-con-orientation',
+  'zone-con-value-edu': 'section-con-value-edu',
+  'zone-con-primary-actions': 'section-con-primary-actions',
+  'zone-con-supporting': 'section-con-supporting',
+};
 
 function applyZoneSectionFilters() {
   Object.entries(ZONE_FILTER_MAP).forEach(([zoneClass, filterId]) => {

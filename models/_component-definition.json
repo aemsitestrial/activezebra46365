@@ -81,6 +81,15 @@
         },
         {
           "...": "../blocks/xe-featured-cards/_*.json#/definitions"
+        },
+        {
+          "...": "../blocks/xe-quick-actions/_*.json#/definitions"
+        },
+        {
+          "...": "../blocks/xe-banner/_*.json#/definitions"
+        },
+        {
+          "...": "../blocks/xe-breadcrumb/_*.json#/definitions"
         }
       ]
     },

@@ -14,6 +14,34 @@
       ]
     },
     {
+      "id": "category-lp-metadata",
+      "fields":
+      [
+        {
+          "component": "text",
+          "name": "template",
+          "label": "Template",
+          "valueType": "string",
+          "value": "category-lp",
+          "readOnly": true
+        }
+      ]
+    },
+    {
+      "id": "content-lp-metadata",
+      "fields":
+      [
+        {
+          "component": "text",
+          "name": "template",
+          "label": "Template",
+          "valueType": "string",
+          "value": "content-lp",
+          "readOnly": true
+        }
+      ]
+    },
+    {
       "id": "enrichment-metadata",
       "fields":
       [

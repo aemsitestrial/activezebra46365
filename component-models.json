@@ -179,6 +179,50 @@
           {
             "name": "Zone — Trust & Credibility",
             "value": "zone-trust"
+          },
+          {
+            "name": "Category LP — Orientation",
+            "value": "zone-cat-orientation"
+          },
+          {
+            "name": "Category LP — Shortcuts",
+            "value": "zone-cat-shortcuts"
+          },
+          {
+            "name": "Category LP — Awareness",
+            "value": "zone-cat-awareness"
+          },
+          {
+            "name": "Category LP — Primary Actions",
+            "value": "zone-cat-primary-actions"
+          },
+          {
+            "name": "Category LP — Supporting Content",
+            "value": "zone-cat-supporting"
+          },
+          {
+            "name": "Category LP — Trust & Credibility",
+            "value": "zone-cat-trust"
+          },
+          {
+            "name": "Category LP — Support & Assistance",
+            "value": "zone-cat-support-assist"
+          },
+          {
+            "name": "Content LP — Orientation & Awareness",
+            "value": "zone-con-orientation"
+          },
+          {
+            "name": "Content LP — Value & Education",
+            "value": "zone-con-value-edu"
+          },
+          {
+            "name": "Content LP — Primary Actions",
+            "value": "zone-con-primary-actions"
+          },
+          {
+            "name": "Content LP — Supporting Content",
+            "value": "zone-con-supporting"
           }
         ]
       }
@@ -5947,6 +5991,163 @@
     ]
   },
   {
+    "id": "xe-banner",
+    "fields": [
+      {
+        "component": "text",
+        "name": "heading",
+        "label": "Heading",
+        "valueType": "string",
+        "required": true
+      },
+      {
+        "component": "select",
+        "name": "headingLevel",
+        "label": "Heading Level",
+        "valueType": "string",
+        "value": "h2",
+        "options": [
+          {
+            "name": "H1",
+            "value": "h1"
+          },
+          {
+            "name": "H2",
+            "value": "h2"
+          },
+          {
+            "name": "H3",
+            "value": "h3"
+          },
+          {
+            "name": "H4",
+            "value": "h4"
+          },
+          {
+            "name": "H5",
+            "value": "h5"
+          },
+          {
+            "name": "H6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "message",
+        "label": "Message",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "icon",
+        "label": "Icon",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "actionText",
+        "label": "Action Text",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "actionLink",
+        "label": "Action Link",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "size",
+        "label": "Size",
+        "valueType": "string",
+        "value": "generous",
+        "options": [
+          {
+            "name": "Generous",
+            "value": "generous"
+          },
+          {
+            "name": "Comfortable",
+            "value": "comfortable"
+          },
+          {
+            "name": "Compact",
+            "value": "compact"
+          },
+          {
+            "name": "Spacious",
+            "value": "spacious"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "alignment",
+        "label": "Alignment",
+        "valueType": "string",
+        "value": "center",
+        "options": [
+          {
+            "name": "Left",
+            "value": "left"
+          },
+          {
+            "name": "Center",
+            "value": "center"
+          },
+          {
+            "name": "Right",
+            "value": "right"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "column",
+        "label": "Column Layout",
+        "valueType": "string",
+        "value": "single",
+        "options": [
+          {
+            "name": "Single Column",
+            "value": "single"
+          },
+          {
+            "name": "Two Column",
+            "value": "two"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "background",
+        "label": "Background",
+        "valueType": "string",
+        "value": "default",
+        "options": [
+          {
+            "name": "Default",
+            "value": "default"
+          },
+          {
+            "name": "Subtle",
+            "value": "subtle"
+          },
+          {
+            "name": "Muted",
+            "value": "muted"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "xe-breadcrumb",
+    "fields": []
+  },
+  {
     "id": "xe-featured-cards",
     "fields": [
       {
@@ -6242,6 +6443,116 @@
         "label": "Action link",
         "valueType": "string",
         "required": true
+      }
+    ]
+  },
+  {
+    "id": "xe-quick-actions",
+    "fields": [
+      {
+        "component": "select",
+        "name": "background",
+        "label": "Background",
+        "valueType": "string",
+        "value": "default",
+        "options": [
+          {
+            "name": "Default",
+            "value": "default"
+          },
+          {
+            "name": "Subtle",
+            "value": "subtle"
+          },
+          {
+            "name": "Muted",
+            "value": "muted"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "cardCount",
+        "label": "Card Count",
+        "description": "Number of actions displayed per row.",
+        "valueType": "string",
+        "value": "3-up",
+        "options": [
+          {
+            "name": "3-up",
+            "value": "3-up"
+          },
+          {
+            "name": "4-up",
+            "value": "4-up"
+          },
+          {
+            "name": "5-up",
+            "value": "5-up"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "name": "showIcons",
+        "label": "Show Icons",
+        "valueType": "boolean",
+        "value": true
+      },
+      {
+        "component": "boolean",
+        "name": "showActionIcon",
+        "label": "Show Action Icon",
+        "valueType": "boolean",
+        "value": true
+      }
+    ]
+  },
+  {
+    "id": "xe-quick-action",
+    "fields": [
+      {
+        "component": "text",
+        "name": "label",
+        "label": "Label",
+        "valueType": "string",
+        "required": true
+      },
+      {
+        "component": "select",
+        "name": "actionIcon",
+        "label": "Action Icon",
+        "valueType": "string",
+        "value": "internal-link",
+        "options": [
+          {
+            "name": "Internal Link",
+            "value": "internal-link"
+          },
+          {
+            "name": "External Link",
+            "value": "external-link"
+          },
+          {
+            "name": "Download",
+            "value": "download"
+          }
+        ]
+      },
+      {
+        "component": "aem-content",
+        "name": "actionLink",
+        "label": "Action Link URL",
+        "valueType": "string",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "name": "imageBackground",
+        "label": "Image Background",
+        "description": "Used for the 5th card in 5-up layout (white text overlay).",
+        "multi": false,
+        "valueType": "string"
       }
     ]
   }

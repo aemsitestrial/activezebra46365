@@ -28,6 +28,171 @@
           }
         }
       }
+    },
+    {
+      "title": "Category LP — Orientation",
+      "id": "section-cat-orientation",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "model": "section",
+              "style": "zone-cat-orientation"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Category LP — Shortcuts",
+      "id": "section-cat-shortcuts",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "model": "section",
+              "style": "zone-cat-shortcuts"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Category LP — Awareness",
+      "id": "section-cat-awareness",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "model": "section",
+              "style": "zone-cat-awareness"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Category LP — Primary Actions",
+      "id": "section-cat-primary-actions",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "model": "section",
+              "style": "zone-cat-primary-actions"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Category LP — Supporting Content",
+      "id": "section-cat-supporting",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "model": "section",
+              "style": "zone-cat-supporting"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Category LP — Trust & Credibility",
+      "id": "section-cat-trust",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "model": "section",
+              "style": "zone-cat-trust"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Category LP — Support & Assistance",
+      "id": "section-cat-support-assist",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "model": "section",
+              "style": "zone-cat-support-assist"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Content LP — Orientation & Awareness",
+      "id": "section-con-orientation",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "model": "section",
+              "style": "zone-con-orientation"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Content LP — Value & Education",
+      "id": "section-con-value-edu",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "model": "section",
+              "style": "zone-con-value-edu"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Content LP — Primary Actions",
+      "id": "section-con-primary-actions",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "model": "section",
+              "style": "zone-con-primary-actions"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Content LP — Supporting Content",
+      "id": "section-con-supporting",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "model": "section",
+              "style": "zone-con-supporting"
+            }
+          }
+        }
+      }
     }
   ],
   "models": [
@@ -96,6 +261,50 @@
             {
               "name": "Zone — Trust & Credibility",
               "value": "zone-trust"
+            },
+            {
+              "name": "Category LP — Orientation",
+              "value": "zone-cat-orientation"
+            },
+            {
+              "name": "Category LP — Shortcuts",
+              "value": "zone-cat-shortcuts"
+            },
+            {
+              "name": "Category LP — Awareness",
+              "value": "zone-cat-awareness"
+            },
+            {
+              "name": "Category LP — Primary Actions",
+              "value": "zone-cat-primary-actions"
+            },
+            {
+              "name": "Category LP — Supporting Content",
+              "value": "zone-cat-supporting"
+            },
+            {
+              "name": "Category LP — Trust & Credibility",
+              "value": "zone-cat-trust"
+            },
+            {
+              "name": "Category LP — Support & Assistance",
+              "value": "zone-cat-support-assist"
+            },
+            {
+              "name": "Content LP — Orientation & Awareness",
+              "value": "zone-con-orientation"
+            },
+            {
+              "name": "Content LP — Value & Education",
+              "value": "zone-con-value-edu"
+            },
+            {
+              "name": "Content LP — Primary Actions",
+              "value": "zone-con-primary-actions"
+            },
+            {
+              "name": "Content LP — Supporting Content",
+              "value": "zone-con-supporting"
             }
           ]
         }
@@ -140,6 +349,75 @@
       "id": "section-orientation",
       "components": [
         "xe-hero",
+        "xe-featured-cards"
+      ]
+    },
+    {
+      "id": "section-cat-orientation",
+      "components": [
+        "xe-hero",
+        "xe-breadcrumb"
+      ]
+    },
+    {
+      "id": "section-cat-shortcuts",
+      "components": [
+        "xe-quick-actions"
+      ]
+    },
+    {
+      "id": "section-cat-awareness",
+      "components": []
+    },
+    {
+      "id": "section-cat-primary-actions",
+      "components": [
+        "xe-quick-actions",
+        "xe-featured-cards"
+      ]
+    },
+    {
+      "id": "section-cat-supporting",
+      "components": [
+        "xe-featured-cards"
+      ]
+    },
+    {
+      "id": "section-cat-trust",
+      "components": [
+        "xe-featured-cards"
+      ]
+    },
+    {
+      "id": "section-cat-support-assist",
+      "components": [
+        "xe-banner"
+      ]
+    },
+    {
+      "id": "section-con-orientation",
+      "components": [
+        "xe-hero",
+        "xe-breadcrumb"
+      ]
+    },
+    {
+      "id": "section-con-value-edu",
+      "components": [
+        "xe-featured-cards"
+      ]
+    },
+    {
+      "id": "section-con-primary-actions",
+      "components": [
+        "xe-quick-actions",
+        "xe-featured-cards"
+      ]
+    },
+    {
+      "id": "section-con-supporting",
+      "components": [
+        "xe-banner",
         "xe-featured-cards"
       ]
     }

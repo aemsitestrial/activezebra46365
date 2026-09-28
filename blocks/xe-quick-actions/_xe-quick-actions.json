@@ -1,0 +1,134 @@
+{
+  "definitions": [
+    {
+      "title": "XE Quick Actions",
+      "id": "xe-quick-actions",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "xe-quick-actions",
+              "model": "xe-quick-actions",
+              "filter": "xe-quick-actions",
+              "background": "default",
+              "cardCount": "3-up",
+              "showIcons": "true",
+              "showActionIcon": "true"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "XE Quick Action",
+      "id": "xe-quick-action",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Quick Action",
+              "model": "xe-quick-action",
+              "label": "Action label",
+              "actionLink": "#"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "xe-quick-actions",
+      "fields": [
+        {
+          "component": "select",
+          "name": "background",
+          "label": "Background",
+          "valueType": "string",
+          "value": "default",
+          "options": [
+            { "name": "Default", "value": "default" },
+            { "name": "Subtle", "value": "subtle" },
+            { "name": "Muted", "value": "muted" }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "cardCount",
+          "label": "Card Count",
+          "description": "Number of actions displayed per row.",
+          "valueType": "string",
+          "value": "3-up",
+          "options": [
+            { "name": "3-up", "value": "3-up" },
+            { "name": "4-up", "value": "4-up" },
+            { "name": "5-up", "value": "5-up" }
+          ]
+        },
+        {
+          "component": "boolean",
+          "name": "showIcons",
+          "label": "Show Icons",
+          "valueType": "boolean",
+          "value": true
+        },
+        {
+          "component": "boolean",
+          "name": "showActionIcon",
+          "label": "Show Action Icon",
+          "valueType": "boolean",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "xe-quick-action",
+      "fields": [
+        {
+          "component": "text",
+          "name": "label",
+          "label": "Label",
+          "valueType": "string",
+          "required": true
+        },
+        {
+          "component": "select",
+          "name": "actionIcon",
+          "label": "Action Icon",
+          "valueType": "string",
+          "value": "internal-link",
+          "options": [
+            { "name": "Internal Link", "value": "internal-link" },
+            { "name": "External Link", "value": "external-link" },
+            { "name": "Download", "value": "download" }
+          ]
+        },
+        {
+          "component": "aem-content",
+          "name": "actionLink",
+          "label": "Action Link URL",
+          "valueType": "string",
+          "required": true
+        },
+        {
+          "component": "reference",
+          "name": "imageBackground",
+          "label": "Image Background",
+          "description": "Used for the 5th card in 5-up layout (white text overlay).",
+          "multi": false,
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "xe-quick-actions",
+      "components": [
+        "xe-quick-action"
+      ]
+    }
+  ]
+}

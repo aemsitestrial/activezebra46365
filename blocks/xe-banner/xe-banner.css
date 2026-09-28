@@ -1,0 +1,141 @@
+/* xe-banner block
+   Full-width banner strip with heading, optional message, icon, and CTA.
+   Axes: size (generous|comfortable|compact|spacious)
+         alignment (left|center|right)
+         column (single|two)
+         background (default|subtle|muted) */
+
+.xe-banner {
+  --xe-banner-accent: #c8102e;
+  --xe-banner-ink: #1a1a1a;
+  --xe-banner-muted: #555;
+
+  width: 100%;
+  background: #fff;
+}
+
+.xe-banner.xe-banner--bg-subtle { background: #faf7f6; }
+.xe-banner.xe-banner--bg-muted  { background: #f1ecea; }
+
+/* --- size (padding scale) -------------------------------------------------- */
+.xe-banner.xe-banner--size-generous    { padding: 64px 24px; }
+.xe-banner.xe-banner--size-spacious    { padding: 52px 24px; }
+.xe-banner.xe-banner--size-comfortable { padding: 40px 24px; }
+.xe-banner.xe-banner--size-compact     { padding: 28px 24px; }
+
+/* --- inner ----------------------------------------------------------------- */
+.xe-banner .xe-banner__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Two-column layout splits content left and actions right */
+.xe-banner.xe-banner--col-two .xe-banner__inner {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.xe-banner.xe-banner--col-two .xe-banner__action {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* --- alignment ------------------------------------------------------------- */
+.xe-banner.xe-banner--align-center .xe-banner__inner { align-items: center; text-align: center; }
+.xe-banner.xe-banner--align-right .xe-banner__inner  { align-items: flex-end; text-align: right; }
+.xe-banner.xe-banner--align-left .xe-banner__inner   { align-items: flex-start; text-align: left; }
+
+/* Override alignment for two-column (always row-based) */
+.xe-banner.xe-banner--col-two.xe-banner--align-center .xe-banner__inner { text-align: left; }
+
+/* --- icon ------------------------------------------------------------------ */
+.xe-banner .xe-banner__icon {
+  width: 36px;
+  height: 36px;
+  display: block;
+  color: var(--xe-banner-accent);
+}
+
+/* --- heading --------------------------------------------------------------- */
+.xe-banner .xe-banner__heading {
+  margin: 0;
+  font-size: clamp(1.4rem, 1rem + 1.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--xe-banner-ink);
+}
+
+/* --- message --------------------------------------------------------------- */
+.xe-banner .xe-banner__message {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--xe-banner-muted);
+  max-width: 64ch;
+}
+
+/* --- action ---------------------------------------------------------------- */
+.xe-banner .xe-banner__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 22px;
+  border-radius: 6px;
+  background: var(--xe-banner-accent);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.xe-banner .xe-banner__action::after {
+  content: '\2192';
+  font-weight: 700;
+  transition: transform 0.15s ease;
+}
+
+.xe-banner .xe-banner__action:hover {
+  background: #a60d24;
+  transform: translateY(-1px);
+}
+
+.xe-banner .xe-banner__action:hover::after {
+  transform: translateX(3px);
+}
+
+.xe-banner .xe-banner__action:focus-visible {
+  outline: 3px solid var(--xe-banner-accent);
+  outline-offset: 3px;
+}
+
+/* --- breakpoints: 768 / 480 ------------------------------------------------ */
+@media (width <= 768px) {
+  .xe-banner.xe-banner--size-generous    { padding: 48px 20px; }
+  .xe-banner.xe-banner--size-spacious    { padding: 40px 20px; }
+  .xe-banner.xe-banner--size-comfortable { padding: 32px 20px; }
+  .xe-banner.xe-banner--size-compact     { padding: 20px 20px; }
+
+  .xe-banner.xe-banner--col-two .xe-banner__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .xe-banner.xe-banner--col-two .xe-banner__action {
+    margin-left: 0;
+  }
+}
+
+@media (width <= 480px) {
+  .xe-banner .xe-banner__action {
+    width: 100%;
+    justify-content: center;
+  }
+}

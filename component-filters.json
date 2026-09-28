@@ -1,7 +1,9 @@
 [
   {
     "id": "main",
-    "components": []
+    "components": [
+      "section"
+    ]
   },
   {
     "id": "section",
@@ -40,6 +42,75 @@
     "id": "section-orientation",
     "components": [
       "xe-hero",
+      "xe-featured-cards"
+    ]
+  },
+  {
+    "id": "section-cat-orientation",
+    "components": [
+      "xe-hero",
+      "xe-breadcrumb"
+    ]
+  },
+  {
+    "id": "section-cat-shortcuts",
+    "components": [
+      "xe-quick-actions"
+    ]
+  },
+  {
+    "id": "section-cat-awareness",
+    "components": []
+  },
+  {
+    "id": "section-cat-primary-actions",
+    "components": [
+      "xe-quick-actions",
+      "xe-featured-cards"
+    ]
+  },
+  {
+    "id": "section-cat-supporting",
+    "components": [
+      "xe-featured-cards"
+    ]
+  },
+  {
+    "id": "section-cat-trust",
+    "components": [
+      "xe-featured-cards"
+    ]
+  },
+  {
+    "id": "section-cat-support-assist",
+    "components": [
+      "xe-banner"
+    ]
+  },
+  {
+    "id": "section-con-orientation",
+    "components": [
+      "xe-hero",
+      "xe-breadcrumb"
+    ]
+  },
+  {
+    "id": "section-con-value-edu",
+    "components": [
+      "xe-featured-cards"
+    ]
+  },
+  {
+    "id": "section-con-primary-actions",
+    "components": [
+      "xe-quick-actions",
+      "xe-featured-cards"
+    ]
+  },
+  {
+    "id": "section-con-supporting",
+    "components": [
+      "xe-banner",
       "xe-featured-cards"
     ]
   },
@@ -106,6 +177,12 @@
     "id": "xe-hero",
     "components": [
       "xe-hero-action"
+    ]
+  },
+  {
+    "id": "xe-quick-actions",
+    "components": [
+      "xe-quick-action"
     ]
   }
 ]
