@@ -1146,11 +1146,15 @@
                   "model": "xe-banner",
                   "heading": "Need help?",
                   "headingLevel": "h2",
-                  "size": "generous",
-                  "alignment": "center",
-                  "column": "single",
-                  "background": "default",
-                  "bannerContent": "message"
+                  "size": "compact",
+                  "alignment": "left",
+                  "column": "two",
+                  "background": "muted",
+                  "bannerContent": "message-action",
+                  "actionText": "Contact Support",
+                  "actionLink": "",
+                  "message": "",
+                  "icon": ""
                 }
               }
             }

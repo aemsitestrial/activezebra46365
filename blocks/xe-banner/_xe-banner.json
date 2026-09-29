@@ -10,13 +10,17 @@
             "template": {
               "name": "xe-banner",
               "model": "xe-banner",
+              "bannerContent": "message-action",
               "heading": "Need help?",
               "headingLevel": "h2",
-              "size": "generous",
-              "alignment": "center",
-              "column": "single",
-              "background": "default",
-              "bannerContent": "message"
+              "message": "",
+              "icon": "",
+              "actionText": "Contact Support",
+              "actionLink": "",
+              "size": "compact",
+              "alignment": "left",
+              "column": "two",
+              "background": "muted"
             }
           }
         }
@@ -33,10 +37,10 @@
           "label": "Banner Content",
           "description": "Choose what content the banner displays. 'Message only' shows a heading and body text — ideal for announcements or informational strips. 'Message + Action' adds a CTA button — use when you want visitors to take a specific next step.",
           "valueType": "string",
-          "value": "message",
+          "value": "message-action",
           "options": [
-            { "name": "Message only", "value": "message" },
-            { "name": "Message + Action", "value": "message-action" }
+            { "name": "Message + Action", "value": "message-action" },
+            { "name": "Message only", "value": "message" }
           ]
         },
         {
