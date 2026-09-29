@@ -3,7 +3,8 @@
    Axes: size (generous|comfortable|compact|spacious)
          alignment (left|center|right)
          column (single|two)
-         background (default|subtle|muted) */
+         background (default|subtle|muted)
+         bannerContent (message|message-action) */
 
 .xe-banner {
   --xe-banner-accent: #c8102e;
@@ -32,7 +33,7 @@
   margin: 0 auto;
 }
 
-/* Two-column layout splits content left and actions right */
+/* Two-column: content left, action right */
 .xe-banner.xe-banner--col-two .xe-banner__inner {
   flex-direction: row;
   align-items: center;
@@ -44,12 +45,20 @@
   flex-shrink: 0;
 }
 
-/* --- alignment ------------------------------------------------------------- */
-.xe-banner.xe-banner--align-center .xe-banner__inner { align-items: center; text-align: center; }
-.xe-banner.xe-banner--align-right .xe-banner__inner  { align-items: flex-end; text-align: right; }
-.xe-banner.xe-banner--align-left .xe-banner__inner   { align-items: flex-start; text-align: left; }
+/* --- content group --------------------------------------------------------- */
+.xe-banner .xe-banner__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
 
-/* Override alignment for two-column (always row-based) */
+/* --- alignment ------------------------------------------------------------- */
+.xe-banner.xe-banner--align-center .xe-banner__inner  { align-items: center; text-align: center; }
+.xe-banner.xe-banner--align-right  .xe-banner__inner  { align-items: flex-end; text-align: right; }
+.xe-banner.xe-banner--align-left   .xe-banner__inner  { align-items: flex-start; text-align: left; }
+
+/* Two-column always left-aligns the content column */
 .xe-banner.xe-banner--col-two.xe-banner--align-center .xe-banner__inner { text-align: left; }
 
 /* --- icon ------------------------------------------------------------------ */
