@@ -161,51 +161,51 @@
             "value": "columns"
           },
           {
-            "name": "Zone — Orientation",
+            "name": "Zone \u2014 Orientation",
             "value": "zone-orientation"
           },
           {
-            "name": "Zone — Awareness",
+            "name": "Zone \u2014 Awareness",
             "value": "zone-awareness"
           },
           {
-            "name": "Zone — Primary Actions",
+            "name": "Zone \u2014 Primary Actions",
             "value": "zone-primary-actions"
           },
           {
-            "name": "Zone — Supporting Content",
+            "name": "Zone \u2014 Supporting Content",
             "value": "zone-supporting"
           },
           {
-            "name": "Zone — Trust & Credibility",
+            "name": "Zone \u2014 Trust & Credibility",
             "value": "zone-trust"
           },
           {
-            "name": "Category LP — Shortcuts",
+            "name": "Category LP \u2014 Shortcuts",
             "value": "zone-cat-shortcuts"
           },
           {
-            "name": "Category LP — Awareness",
+            "name": "Category LP \u2014 Awareness",
             "value": "zone-cat-awareness"
           },
           {
-            "name": "Category LP — Supporting Content",
+            "name": "Category LP \u2014 Supporting Content",
             "value": "zone-cat-supporting"
           },
           {
-            "name": "Category LP — Trust & Credibility",
+            "name": "Category LP \u2014 Trust & Credibility",
             "value": "zone-cat-trust"
           },
           {
-            "name": "Category LP — Support & Assistance",
+            "name": "Category LP \u2014 Support & Assistance",
             "value": "zone-cat-support-assist"
           },
           {
-            "name": "Content LP — Value & Education",
+            "name": "Content LP \u2014 Value & Education",
             "value": "zone-con-value-edu"
           },
           {
-            "name": "Content LP — Supporting Content",
+            "name": "Content LP \u2014 Supporting Content",
             "value": "zone-con-supporting"
           }
         ]
@@ -2897,11 +2897,11 @@
               },
               {
                 "name": "$1,234.21",
-                "value": "¤#,##0.00"
+                "value": "\u00a4#,##0.00"
               },
               {
                 "name": "$1234.21",
-                "value": "()¤####0.00"
+                "value": "()\u00a4####0.00"
               },
               {
                 "name": "1,234.210",
@@ -5978,9 +5978,28 @@
     "id": "xe-banner",
     "fields": [
       {
+        "component": "select",
+        "name": "bannerContent",
+        "label": "Banner Content",
+        "description": "Choose what content the banner displays. 'Message only' shows a heading and body text \u2014 ideal for announcements or informational strips. 'Message + Action' adds a CTA button \u2014 use when you want visitors to take a specific next step.",
+        "valueType": "string",
+        "value": "message",
+        "options": [
+          {
+            "name": "Message only",
+            "value": "message"
+          },
+          {
+            "name": "Message + Action",
+            "value": "message-action"
+          }
+        ]
+      },
+      {
         "component": "text",
         "name": "heading",
         "label": "Heading",
+        "description": "Main banner headline. Keep it short and impact-driven \u2014 this is the first thing visitors read. Required.",
         "valueType": "string",
         "required": true
       },
@@ -5988,6 +6007,7 @@
         "component": "select",
         "name": "headingLevel",
         "label": "Heading Level",
+        "description": "Semantic HTML heading tag (H1\u2013H6). Controls page hierarchy for accessibility and SEO \u2014 does not change the visual text size. Match the level to where this banner sits on the page.",
         "valueType": "string",
         "value": "h2",
         "options": [
@@ -6021,30 +6041,35 @@
         "component": "text",
         "name": "message",
         "label": "Message",
+        "description": "Supporting body text below the heading. One or two sentences that add context \u2014 e.g. availability, details, or a benefit statement.",
         "valueType": "string"
       },
       {
         "component": "text",
         "name": "icon",
         "label": "Icon",
+        "description": "Icon name from the design system icon library (e.g. 'headset', 'info-circle'). Displayed above the heading. Leave blank to hide the icon.",
         "valueType": "string"
       },
       {
         "component": "text",
         "name": "actionText",
-        "label": "Action Text",
+        "label": "Action Label",
+        "description": "CTA button label. Keep it short and action-oriented (e.g. 'Contact Support', 'Learn More'). Only rendered when Banner Content is set to 'Message + Action'.",
         "valueType": "string"
       },
       {
         "component": "aem-content",
         "name": "actionLink",
         "label": "Action Link",
+        "description": "Destination URL for the CTA button. Pick a page from the content tree or paste an external URL. Only rendered when Banner Content is set to 'Message + Action'.",
         "valueType": "string"
       },
       {
         "component": "select",
         "name": "size",
         "label": "Size",
+        "description": "Controls the banner's vertical padding. 'Generous' suits hero-level banners; 'Compact' fits tighter inline positions such as mid-page support strips.",
         "valueType": "string",
         "value": "generous",
         "options": [
@@ -6070,6 +6095,7 @@
         "component": "select",
         "name": "alignment",
         "label": "Alignment",
+        "description": "Horizontal alignment of the banner content. 'Center' suits standalone banners; 'Left' works better when adjacent to other elements.",
         "valueType": "string",
         "value": "center",
         "options": [
@@ -6091,6 +6117,7 @@
         "component": "select",
         "name": "column",
         "label": "Column Layout",
+        "description": "'Two Column' places the CTA button to the right of the content \u2014 most useful when Banner Content is 'Message + Action'. 'Single Column' stacks everything vertically.",
         "valueType": "string",
         "value": "single",
         "options": [
@@ -6108,6 +6135,7 @@
         "component": "select",
         "name": "background",
         "label": "Background",
+        "description": "'Default' is white. 'Subtle' is a light warm off-white. 'Muted' is a soft beige tone \u2014 useful for visually separating the banner from white page sections.",
         "valueType": "string",
         "value": "default",
         "options": [

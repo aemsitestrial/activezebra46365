@@ -15,7 +15,8 @@
               "size": "generous",
               "alignment": "center",
               "column": "single",
-              "background": "default"
+              "background": "default",
+              "bannerContent": "message"
             }
           }
         }
@@ -27,9 +28,22 @@
       "id": "xe-banner",
       "fields": [
         {
+          "component": "select",
+          "name": "bannerContent",
+          "label": "Banner Content",
+          "description": "Choose what content the banner displays. 'Message only' shows a heading and body text — ideal for announcements or informational strips. 'Message + Action' adds a CTA button — use when you want visitors to take a specific next step.",
+          "valueType": "string",
+          "value": "message",
+          "options": [
+            { "name": "Message only", "value": "message" },
+            { "name": "Message + Action", "value": "message-action" }
+          ]
+        },
+        {
           "component": "text",
           "name": "heading",
           "label": "Heading",
+          "description": "Main banner headline. Keep it short and impact-driven — this is the first thing visitors read. Required.",
           "valueType": "string",
           "required": true
         },
@@ -37,6 +51,7 @@
           "component": "select",
           "name": "headingLevel",
           "label": "Heading Level",
+          "description": "Semantic HTML heading tag (H1–H6). Controls page hierarchy for accessibility and SEO — does not change the visual text size. Match the level to where this banner sits on the page.",
           "valueType": "string",
           "value": "h2",
           "options": [
@@ -52,30 +67,35 @@
           "component": "text",
           "name": "message",
           "label": "Message",
+          "description": "Supporting body text below the heading. One or two sentences that add context — e.g. availability, details, or a benefit statement.",
           "valueType": "string"
         },
         {
           "component": "text",
           "name": "icon",
           "label": "Icon",
+          "description": "Icon name from the design system icon library (e.g. 'headset', 'info-circle'). Displayed above the heading. Leave blank to hide the icon.",
           "valueType": "string"
         },
         {
           "component": "text",
           "name": "actionText",
-          "label": "Action Text",
+          "label": "Action Label",
+          "description": "CTA button label. Keep it short and action-oriented (e.g. 'Contact Support', 'Learn More'). Only rendered when Banner Content is set to 'Message + Action'.",
           "valueType": "string"
         },
         {
           "component": "aem-content",
           "name": "actionLink",
           "label": "Action Link",
+          "description": "Destination URL for the CTA button. Pick a page from the content tree or paste an external URL. Only rendered when Banner Content is set to 'Message + Action'.",
           "valueType": "string"
         },
         {
           "component": "select",
           "name": "size",
           "label": "Size",
+          "description": "Controls the banner's vertical padding. 'Generous' suits hero-level banners; 'Compact' fits tighter inline positions such as mid-page support strips.",
           "valueType": "string",
           "value": "generous",
           "options": [
@@ -89,6 +109,7 @@
           "component": "select",
           "name": "alignment",
           "label": "Alignment",
+          "description": "Horizontal alignment of the banner content. 'Center' suits standalone banners; 'Left' works better when adjacent to other elements.",
           "valueType": "string",
           "value": "center",
           "options": [
@@ -101,6 +122,7 @@
           "component": "select",
           "name": "column",
           "label": "Column Layout",
+          "description": "'Two Column' places the CTA button to the right of the content — most useful when Banner Content is 'Message + Action'. 'Single Column' stacks everything vertically.",
           "valueType": "string",
           "value": "single",
           "options": [
@@ -112,6 +134,7 @@
           "component": "select",
           "name": "background",
           "label": "Background",
+          "description": "'Default' is white. 'Subtle' is a light warm off-white. 'Muted' is a soft beige tone — useful for visually separating the banner from white page sections.",
           "valueType": "string",
           "value": "default",
           "options": [

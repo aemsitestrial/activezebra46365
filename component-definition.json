@@ -107,7 +107,7 @@
           }
         },
         {
-          "title": "Category LP — Shortcuts",
+          "title": "Category LP \u2014 Shortcuts",
           "id": "section-cat-shortcuts",
           "plugins": {
             "xwalk": {
@@ -122,7 +122,7 @@
           }
         },
         {
-          "title": "Category LP — Awareness",
+          "title": "Category LP \u2014 Awareness",
           "id": "section-cat-awareness",
           "plugins": {
             "xwalk": {
@@ -137,7 +137,7 @@
           }
         },
         {
-          "title": "Category LP — Supporting Content",
+          "title": "Category LP \u2014 Supporting Content",
           "id": "section-cat-supporting",
           "plugins": {
             "xwalk": {
@@ -152,7 +152,7 @@
           }
         },
         {
-          "title": "Category LP — Trust & Credibility",
+          "title": "Category LP \u2014 Trust & Credibility",
           "id": "section-cat-trust",
           "plugins": {
             "xwalk": {
@@ -167,7 +167,7 @@
           }
         },
         {
-          "title": "Category LP — Support & Assistance",
+          "title": "Category LP \u2014 Support & Assistance",
           "id": "section-cat-support-assist",
           "plugins": {
             "xwalk": {
@@ -182,7 +182,7 @@
           }
         },
         {
-          "title": "Content LP — Value & Education",
+          "title": "Content LP \u2014 Value & Education",
           "id": "section-con-value-edu",
           "plugins": {
             "xwalk": {
@@ -197,7 +197,7 @@
           }
         },
         {
-          "title": "Content LP — Supporting Content",
+          "title": "Content LP \u2014 Supporting Content",
           "id": "section-con-supporting",
           "plugins": {
             "xwalk": {
@@ -1149,7 +1149,8 @@
                   "size": "generous",
                   "alignment": "center",
                   "column": "single",
-                  "background": "default"
+                  "background": "default",
+                  "bannerContent": "message"
                 }
               }
             }
