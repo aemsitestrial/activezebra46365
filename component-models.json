@@ -5983,15 +5983,15 @@
         "label": "Banner Content",
         "description": "Choose what content the banner displays. 'Message only' shows a heading and body text \u2014 ideal for announcements or informational strips. 'Message + Action' adds a CTA button \u2014 use when you want visitors to take a specific next step.",
         "valueType": "string",
-        "value": "message",
+        "value": "message-action",
         "options": [
-          {
-            "name": "Message only",
-            "value": "message"
-          },
           {
             "name": "Message + Action",
             "value": "message-action"
+          },
+          {
+            "name": "Message only",
+            "value": "message"
           }
         ]
       },
