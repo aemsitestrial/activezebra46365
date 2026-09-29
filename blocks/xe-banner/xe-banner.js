@@ -44,11 +44,11 @@ export default function decorate(block) {
   const column = columnRow ? val(columnRow).toLowerCase() : 'single';
   const background = backgroundRow ? val(backgroundRow).toLowerCase() : 'default';
 
-  // When bannerContent is not authored, fall back to "message-action" if
-  // both actionText and actionLink are present (preserves old behaviour).
+  // Fall back to "message-action" when the field hasn't been authored yet
+  // (e.g. blocks inserted before the bannerContent field was added).
   const contentType = contentTypeRow
     ? val(contentTypeRow).toLowerCase()
-    : 'message';
+    : 'message-action';
   const showAction = contentType === 'message-action';
 
   block.classList.add(
@@ -99,9 +99,9 @@ export default function decorate(block) {
   if (showAction) {
     const actionText = val(actionTextRow);
     const anchor = actionLinkRow?.querySelector('a');
-    const href = anchor?.getAttribute('href') || val(actionLinkRow);
+    const href = anchor?.getAttribute('href') || val(actionLinkRow) || '#';
 
-    if (actionText && href) {
+    if (actionText) {
       const action = document.createElement('a');
       action.className = 'xe-banner__action';
       action.href = href;
